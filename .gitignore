@@ -121,6 +121,6 @@ _site
 public
 node_modules
 
-#Sublime text files
+# Sublime text files
 ai-acquisition.sublime-project
 ai-acquisition.sublime-workspace
