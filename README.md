@@ -1,6 +1,16 @@
-# 11ty-uswds-template
+# AI Acquisition Guide: Working Version
 
-## Why this project
+## What is this?
+
+Per [Section 10.1(h) of Executive Order 14110](https://www.federalregister.gov/d/2023-24283/p-337), the purpose of this website is to: 
+
+"facilitate access to Federal Government-wide acquisition solutions for specified types of AI services and products, such as through the creation of a resource guide or other tools to assist the acquisition workforce. Specified types of AI capabilities shall include generative AI and specialized computing infrastructure."
+
+We will publish it in April 2024.
+
+If you're reading this, you're welcome to collaborate. Do some work and send a pull request!
+
+## Everything below this point is boilerplate 11ty-uswds-template language
 
 This is an [11ty](https://www.11ty.dev/) static site generator (SSG) template using [U.S. Web Design System v 3.0 (USWDS)](https://designsystem.digital.gov/) and is focused on providing developers a starter template and reference implementation for Federalist/Cloud.gov Pages websites.
 
