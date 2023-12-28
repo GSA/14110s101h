@@ -9,7 +9,7 @@ sidenav: false
 
 v1.0 - December 2023
 
-Tips to help the acquisition workforce procure artificial intelligence solutions.
+### Tips to help the acquisition workforce procure artificial intelligence solutions.
 
 ## Remember:
 
@@ -26,15 +26,20 @@ Generative AI tools use data and info you input to create new text, pictures and
 
 ## Ready to AI?
 
-Your agency might be able to access Generative AI solutions without doing an acquisition. Here are a few ways to do that. As always, check with your agency before using any AI product or service.
+### Your agency might be able to access Generative AI solutions without doing an acquisition. Here are a few ways to do that. As always, check with your agency before using any AI product or service.
+
 **1. From public web tools**
 Many AI providers offer basic AI tools and services from a freely available public page or a search page. If your agency staff’s Generative AI needs are basic, consider using one of these basic, free tools.
+
 **2. In software you already have**
 Lots of software packages have basic AI functionality built in. Before you start a new acquisition, check with your agency’s IT group. You may already have access to the right AI tools within your existing software.
+
 **3. In a cloud platform you can access**
 Many of the major cloud platforms and “hyperscalers” provide access to Generative AI tools as modules from right within their platforms. Agency staff might be able to use their current cloud platform account and credits to pay for and use those modules.
+
 **4. From a system integrator on contract**
 A growing number of IT system integrators have built Generative AI tools and interfaces to others’ tools. Agency staff can sometimes access such tools through a custom portal or from software that the SIs have deployed. Depending on their contract and task order, an SI might already be able to provide or build a custom solution to provide access to Generative AI tools.
+
 **5. Built from scratch**
 
 ### You may need to do an acquisition for Generative AI products, services and solutions to support your agencies’ mission. Here a few ways to acquire Generative AI.
