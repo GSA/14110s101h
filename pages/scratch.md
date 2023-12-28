@@ -1,11 +1,11 @@
 ---
 title: Scratch
-layout: layouts/wide
+layout: layouts/custom
 permalink: /scratch/
 sidenav: false
 ---
 
-# Section heading (h1)
+# Federal Acquiring AI Resource Guide (h1)
 
 The page heading communicates the main focus of the page. Make your page heading descriptive and keep it succinct.
 
