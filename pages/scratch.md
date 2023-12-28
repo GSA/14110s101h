@@ -1,6 +1,6 @@
 ---
 title: Scratch
-layout: layouts/page
+layout: layouts/wide
 permalink: /scratch/
 sidenav: false
 ---
