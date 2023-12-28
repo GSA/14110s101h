@@ -1,4 +1,4 @@
-title: The Official Acquisition Guidance for AI and Specialized Computing Infrastructure
+title: Acquisition Guidance for AI and Specialized Computing Infrastructure
 email: chris.robinson@gsa.gov
 description: >- # this means to ignore newlines
   Agency Name (EAC) Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -56,8 +56,8 @@ primary_navigation:
     url: /
   - name: Blog
     url: /blog/
-  - name: Document
-    url: /document/
+  - name: Scratch
+    url: /scratch/
   - name: Document with sidenav
     url: /document-with-sidenav/
   - name: Document submenu
