@@ -17,12 +17,12 @@ Generative AI tools use data and info you input to create new text, pictures and
 
 ## Quick Links:
 
-- **New to AI?**
+- **New to AI?**  
   A Quick Intro to the Basics of AI
-- **Ready to AI?**
+- **Ready to AI?**  
   Ways for My Agency to Get  AI
-  Want to Buy AI Smartly?
-- **Best Practices When Buying AI**
+- **Want to Buy AI Smartly?**  
+  Best Practices When Buying AI
 
 ## Ready to AI?
 
