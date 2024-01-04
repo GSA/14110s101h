@@ -39,3 +39,5 @@ Successful AI procurement and acquisition in government require a blend of strat
 
 ---
 For more detailed guidance, visit [The AI Guide for Government](https://coe.gsa.gov/coe/ai-guide-for-government/print-all/index.html).
+
+{% include "attribution-alert.html" %}
