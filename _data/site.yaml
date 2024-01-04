@@ -56,6 +56,8 @@ primary_navigation:
     url: /
   - name: Blog
     url: /blog/
+  - name: Govwide AI Spend
+    url: /govwideaispend/
   - name: Scratch
     url: /scratch/
   - name: Document with sidenav
