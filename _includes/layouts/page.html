@@ -6,6 +6,13 @@ layout: layouts/base
 This template is for a single page that does not have a date associated with it. For example, an about page.
 {% endcomment %}
 
+{{- define "content" -}}
+  {{ $path := "" }}{{ with .File }}
+    {{ $path = .Path }}
+  {{ else }}
+    {{ $path = .Path }}
+  {{ end }}
+
 <div id="main-content" class="usa-layout-docs usa-section data-gh-edit-page="{{- $path -}}">
   <div class="grid-container">
     <div class="grid-row grid-gap">
