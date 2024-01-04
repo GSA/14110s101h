@@ -60,8 +60,8 @@ primary_navigation:
     url: /govwideaispend/
   - name: Scratch
     url: /scratch/
-  - name: Document with sidenav
-    url: /document-with-sidenav/
+  - name: The Basics
+    url: /thebasics/
   - name: Document submenu
     children:
       - name: Navigation link
@@ -72,10 +72,10 @@ primary_navigation:
         url: "#main-content"
 
 secondary_navigation:
-  - name: Secondary link
-    url: "#main-content"
-  - name: Another secondary link
-    url: "#main-content"
+  - name: AI.gov
+    url: https://ai.gov/
+  - name: Acquisition.gov
+    url: https://acquisition.gov/
 
 # Search.gov configuration
 #
