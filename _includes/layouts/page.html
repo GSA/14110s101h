@@ -6,9 +6,7 @@ layout: layouts/base
 This template is for a single page that does not have a date associated with it. For example, an about page.
 {% endcomment %}
 
-{{{% assign $path = page.url %}
-
-<div id="main-content" class="usa-layout-docs usa-section" data-gh-edit-page="{{ $path }}">
+<div id="main-content" class="usa-layout-docs usa-section" data-gh-edit-page="{{ page.url }}">
   <div class="grid-container">
     <div class="grid-row grid-gap">
       {% if sidenav == true %}
@@ -22,3 +20,4 @@ This template is for a single page that does not have a date associated with it.
     </div>
   </div>
 </div>
+
