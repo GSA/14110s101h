@@ -5,5 +5,13 @@
   "app.map": "/assets/js/app-XWR645AF.js.map",
   "uswds.js": "/assets/js/uswds-init.js",
   "styles.css": "/assets/styles/styles-KHOXEEPC.css",
-  "styles.map": "/assets/styles/styles-KHOXEEPC.css.map"
+  "styles.map": "/assets/styles/styles-KHOXEEPC.css.map",
+  "siteMetadata": {
+    "title": "AIProcurementGuidance",
+    "description": "Guidance on acquiring AI",
+    "languageCode": "en-us",
+    "googleAnalytics": "",
+    "git_org": "chrisarrr",
+    "git_repo": "14110s101h"
+  }
 }
