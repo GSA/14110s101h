@@ -6,7 +6,8 @@ layout: layouts/base
 This template is for a single page that does not have a date associated with it. For example, an about page.
 {% endcomment %}
 
-<div id="main-content" class="usa-layout-docs usa-section" data-gh-edit-page="{{ page.url }}">
+{% set githubPath = 'https://github.com/' + site.githubRepo + '/blob/main/pages' + page.url + '.md' %}
+<div id="main-content" class="usa-layout-docs usa-section" data-gh-edit-page="{{ githubPath }}">
   <div class="grid-container">
     <div class="grid-row grid-gap">
       {% if sidenav == true %}
