@@ -1,6 +1,6 @@
 ---
 title: Gov Wide AI Spend
-layout: layouts/page
+layout: layouts/page-editable
 permalink: /govwideaispend/
 sidenav: false
 ---
