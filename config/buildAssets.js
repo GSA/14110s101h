@@ -2,6 +2,17 @@ const fs = require('fs/promises');
 const path = require('path');
 const esbuild = require('esbuild');
 const { sassPlugin } = require('esbuild-sass-plugin');
+const fetch = require('node-fetch');
+
+async function fetchGitHubData() {
+    const response = await fetch('https://api.github.com/your-endpoint', {
+        headers: {
+            'Authorization': `token ${process.env.GITHUB_TOKEN}`
+        }
+    });
+    const data = await response.json();
+    // Use the data as needed
+}
 
 async function createAssetPaths() {
   let pathPrefix = ''
