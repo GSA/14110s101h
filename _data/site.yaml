@@ -57,16 +57,11 @@ primary_navigation:
 #  - name: Blog
 #    url: /blog/
   - name: Guidance
-    url: /scratch/
-    children:
-      - name: Navigation link
-        url: "#main-content"
-      - name: Navigation link
-        url: "#main-content"
-      - name: Navigation link
-        url: "#main-content"
-  - name: Govwide AI Spend
-    url: /govwideaispend/
+    url: /guidance/
+#  - name: Govwide AI Spend
+#    url: /govwideaispend/
+  - name: Feedback
+    url: /feedback/
 
 secondary_navigation:
   - name: AI.gov
