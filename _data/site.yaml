@@ -54,15 +54,10 @@ ga:
 primary_navigation:
   - name: Home
     url: /
-  - name: Blog
-    url: /blog/
-  - name: Govwide AI Spend
-    url: /govwideaispend/
-  - name: Scratch
+#  - name: Blog
+#    url: /blog/
+  - name: Guidance
     url: /scratch/
-  - name: The Basics
-    url: /thebasics/
-  - name: Document submenu
     children:
       - name: Navigation link
         url: "#main-content"
@@ -70,6 +65,8 @@ primary_navigation:
         url: "#main-content"
       - name: Navigation link
         url: "#main-content"
+  - name: Govwide AI Spend
+    url: /govwideaispend/
 
 secondary_navigation:
   - name: AI.gov
