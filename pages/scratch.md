@@ -1,8 +1,8 @@
 ---
-title: Scratch
+title: Guidance
 layout: layouts/page
-permalink: /scratch/
-sidenav: false
+permalink: /guidance/
+sidenav: true
 ---
 
 # Federal Acquiring AI Resource Guide
