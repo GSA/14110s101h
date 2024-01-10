@@ -2,7 +2,7 @@
 title: The Basics
 layout: layouts/page
 permalink: /thebasics/
-sidenav: true
+sidenav: false
 ---
 
 <title>RFI COMSATCOM SINs Atch 8</title>
