@@ -58,9 +58,9 @@ primary_navigation:
 #    url: /blog/
   - name: Guidance
     url: /guidance/
-#  - name: Govwide AI Spend
-#    url: /govwideaispend/
-  - name: Feedback
+ - name: Data
+  url: /govwideaispend/
+  - name: Contact
     url: /feedback/
 
 secondary_navigation:
