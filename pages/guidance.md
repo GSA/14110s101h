@@ -5,7 +5,7 @@ permalink: /guidance/
 sidenav: true
 ---
 
-# Federal Acquiring AI Resource Guide
+# This is the Federal Acquiring AI Resource Guide
 
 v1.0 - December 2023
 
