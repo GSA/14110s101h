@@ -2,7 +2,8 @@
 title: Guidance
 layout: layouts/page
 permalink: /guidance/
-sidenav: true
+sidenav: false
+guidenav: true
 ---
 
 # This is the Federal Acquiring AI Resource Guide
