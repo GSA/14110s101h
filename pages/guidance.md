@@ -68,15 +68,19 @@ guidenav: true
   <h3>Acquiring Specialized Computing Infrastructure:</h3>
 <p>For larger-scale solutions that require agencies to build, test, and control their own models, consider the following:
 </p>
+<ul>
 <li>Infrastructure Needs: Determine the level of specialized computing infrastructure necessary to support your AI initiatives, including processing power and data storage capabilities.</li>
     <li>Partnerships: Explore partnerships with cloud providers or specialized vendors who can offer the necessary infrastructure and expertise.</li>
     <li>Compliance: Ensure that any infrastructure procurement complies with federal acquisition regulations and cybersecurity standards.</li>
+</ul>
   <h3>Regulatory Considerations:</h3>
   <p>When procuring generative AI models and related services, it's essential to navigate the complex landscape of federal acquisition regulations carefully:</p>
+  <ul>
   <li>Federal Acquisition Regulation (FAR): Understand how FAR applies to AI procurement, particularly concerning data rights, intellectual property, and cybersecurity requirements.</li>
 <li>Executive Order Requirements: Align procurement processes with the directives outlined in the relevant Executive Orders on AI, ensuring compliance with federal guidelines for AI use and development.</li>
 <li>NIST Standards: Adhere to NIST standards for AI, which provide a framework for managing risks associated with AI technologies.</li>
 <li>Ethical Considerations: Incorporate ethical considerations into the procurement process, ensuring that AI solutions uphold principles of fairness, accountability, and transparency.</li>
+  </ul>
 <p>By following these guidelines and focusing on the unique considerations of generative AI procurement, government agencies can effectively navigate the acquisition process, ensuring that AI solutions are both impactful and aligned with federal standards and ethical practices.</p>
 <h2 id="chapter4">4. Typical GenAI Projects and Use Cases</h2>
 <p>Generative AI (GenAI) is revolutionizing the way federal agencies approach tasks and challenges, offering innovative solutions across various domains. Here we spotlight typical GenAI projects and applications that underscore the transformative potential of this technology in government settings.</p>
