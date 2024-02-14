@@ -11,7 +11,10 @@ This template is for a single page that does not have a date associated with it.
     <div class="grid-row grid-gap">
       {% if sidenav == true %}
       {% include "sidenav.html" %}
+      {% elsif guidenav == true %}
+      {% include "guidenav.html" %}
       {% endif %}
+      
       <main>
         <div class="usa-layout-docs__main desktop:grid-col-9 usa-prose" data-gh-edit-page="{{ page.url | replace: '/index.html', '' | replace: '.html', '.md' }}">
             {{ content }}
