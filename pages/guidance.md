@@ -9,7 +9,7 @@ sidenav: true
 <article class="usa-prose">
   <h1>Federal Procurement Guidance for Generative AI and Specialized Computing Infrastructure</h1>
   
-  <h2 id="introduction-to-ai-procurement">1. Introduction to AI Procurement</h2>
+  <h2 id="chapter1">1. Introduction to AI Procurement</h2>
  <p>You're embarking on an essential journey towards understanding AI procurement within the federal government. This guide is crafted for you - whether you're a government purchaser looking to navigate the complexities of acquiring AI technologies or an industry professional aiming to align your offerings with governmental needs.</p>
 
 <p>Generative AI, a term you'll frequently encounter, encompasses AI models that can generate synthetic content like images, videos, text, and more by mimicking the structure of input data. On the other hand, Specialized Computing Infrastructure, a concept we'll delve into, refers to the IT infrastructure crucial for developing and deploying AI applications, including high-performance computing environments specialized for AI testbeds.</p>
@@ -20,27 +20,37 @@ sidenav: true
 
 <p>As you dive into this guide, remember that it's more than just a set of instructions; it's a pledge to foster innovation, clarity, and responsible governance in the dynamic field of AI procurement. Let's navigate this landscape together, ensuring our procurement practices are as advanced and ethical as the technologies we aim to harness.</p>
   
-  <h2 id="understanding-generative-ai">2. Understanding Generative AI</h2>
+  <h2 id="chapter2">2. Understanding Generative AI</h2>
+  
   <p>Generative AI stands out in the AI landscape for its ability to create new, synthetic data that resembles the original input data. This unique capability makes it a powerful tool in various applications, from content creation to data augmentation. As we delve into the world of generative AI, it's crucial to grasp not only its potential but also the best practices for its adoption within government enterprises.</p>
   
   <h3>Why Generative AI is Unique:</h3>
+  
   <ul>
     <li>Creativity and Adaptability: Unlike traditional AI models that are limited to analyzing and processing data, generative AI can produce new content, offering solutions that are both innovative and adaptable to changing data landscapes.</li>
     <li>Customization: It allows for high levels of customization in service delivery, enabling tailored solutions to specific government needs and challenges.</li>
   </ul>
+  
   <h3>Service Delivery through Generative AI:</h3>
+  
  <p>Generative AI models can be deployed as a service, enabling government agencies to leverage these capabilities without the need for extensive in-house infrastructure. This approach offers flexibility and scalability, ensuring that services can grow and adapt alongside agency needs.</p>
+ 
   <h3>Recommended Practices for Government Enterprises:</h3>
+  
   <ol>
     <li>Ethical Use and Bias Mitigation: Ensure the ethical use of generative AI by implementing robust bias detection and mitigation strategies.</li>
     <li>Data Privacy and Security: Prioritize data privacy and security in all generative AI applications, safeguarding sensitive information.</li>
     <li>Transparency and Accountability: Maintain transparency in AI operations and establish clear accountability mechanisms.</li>
     <li>Continuous Monitoring and Evaluation: Regularly monitor and evaluate generative AI systems to ensure they meet performance and ethical standards.</li>
   </ol>
+  
   <h3>Key Policy Language and Definitions:</h3>
+  
 <p>According to Executive Order 14110, generative AI is defined as "the class of AI models that emulate the structure and characteristics of input data in order to generate derived synthetic content. This can include images, videos, audio, text, and other digital content."</p>
+
 <p>The term “Specialized Computing Infrastructure” is used in EO 14110 but not defined. Instead, its definition appears in the accompanying OMB memo as “IT Infrastructure,” defined as: “access to adequate IT infrastructure, including high-performance computing infrastructure specialized for AI training and inference, where necessary. Agencies should also ensure adequate access for AI developers to the software tools, open-source libraries, and deployment and monitoring capabilities necessary to rapidly develop, test, and maintain AI applications.”</p>
-  <h2 id="ai-procurement-process">3. AI Procurement Process</h2>
+
+  <h2 id="chapter3">3. AI Procurement Process</h2>
   <p>Procuring AI solutions, particularly generative AI models, requires a nuanced approach compared to traditional software subscriptions. This chapter outlines the steps and considerations necessary for acquiring AI technologies, emphasizing the unique aspects of generative AI procurement.</p>
   <h3>Traditional vs. Generative AI Procurement:</h3>
 <ul>
@@ -68,7 +78,7 @@ sidenav: true
 <li>NIST Standards: Adhere to NIST standards for AI, which provide a framework for managing risks associated with AI technologies.</li>
 <li>Ethical Considerations: Incorporate ethical considerations into the procurement process, ensuring that AI solutions uphold principles of fairness, accountability, and transparency.</li>
 <p>By following these guidelines and focusing on the unique considerations of generative AI procurement, government agencies can effectively navigate the acquisition process, ensuring that AI solutions are both impactful and aligned with federal standards and ethical practices.</p>
-<h2 id="use-cases">4. Typical GenAI Projects and Use Cases</h2>
+<h2 id="chapter4">4. Typical GenAI Projects and Use Cases</h2>
 <p>Generative AI (GenAI) is revolutionizing the way federal agencies approach tasks and challenges, offering innovative solutions across various domains. Here we spotlight typical GenAI projects and applications that underscore the transformative potential of this technology in government settings.</p>
 
 <ul>
@@ -82,7 +92,7 @@ sidenav: true
 
 <p>As we explore these use cases, it's crucial to approach GenAI procurement with an understanding of best practices, ensuring safe and scalable access to these powerful technologies. This chapter aims to demystify the process, guiding you through the most common scenarios you're likely to encounter and offering insights into acquiring GenAI solutions responsibly.</p>
 
-<h2 id="acquisition-vehicles">5. Acquisition Methods and Vehicles</h2>
+<h2 id="chapter5>5. Acquisition Methods and Vehicles</h2>
 <p>When it comes to acquiring AI solutions, the federal government has a variety of procurement options and vehicles at its disposal. Understanding these methods can help you select the most suitable path for your agency's needs, whether you're looking to access generative AI capabilities or build your own AI systems. Here we break down the various procurement paths with brief explanations to guide you through the landscape of AI acquisition.</p>
 
 <ul>
