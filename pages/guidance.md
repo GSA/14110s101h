@@ -2,7 +2,7 @@
 title: Guidance
 layout: layouts/page
 permalink: /guidance/
-sidenav: true
+guidenav: true
 ---
 
 
