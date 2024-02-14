@@ -1,3 +1,11 @@
+---
+title: Guidance
+layout: layouts/page
+permalink: /guidance/
+sidenav: true
+---
+
+
 <article class="usa-prose">
   <h1>Federal Procurement Guidance for Generative AI and Specialized Computing Infrastructure</h1>
   
