@@ -92,7 +92,7 @@ guidenav: true
 
 <p>As we explore these use cases, it's crucial to approach GenAI procurement with an understanding of best practices, ensuring safe and scalable access to these powerful technologies. This chapter aims to demystify the process, guiding you through the most common scenarios you're likely to encounter and offering insights into acquiring GenAI solutions responsibly.</p>
 
-<h2 id="chapter5>5. Acquisition Methods and Vehicles</h2>
+<h2 id="chapter5">5. Acquisition Methods and Vehicles</h2>
 <p>When it comes to acquiring AI solutions, the federal government has a variety of procurement options and vehicles at its disposal. Understanding these methods can help you select the most suitable path for your agency's needs, whether you're looking to access generative AI capabilities or build your own AI systems. Here we break down the various procurement paths with brief explanations to guide you through the landscape of AI acquisition.</p>
 
 <ul>
