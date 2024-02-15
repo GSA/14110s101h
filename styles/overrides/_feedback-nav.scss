@@ -1,0 +1,29 @@
+
+
+/* Adjust the primary navigation display to flex */
+.usa-nav__primary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* For larger screens */
+@media (min-width: 1024px) {
+  .usa-nav__primary {
+    padding-right: 2rem; /* Adjust the padding as necessary */
+  }
+
+  .usa-nav__primary .usa-nav__link#itc-web-content-survey-yes-no {
+    order: 2; /* Makes sure the feedback button is the last item */
+    margin-left: auto; /* Pushes the button to the right */
+  }
+}
+
+/* For smaller screens */
+@media (max-width: 1023px) {
+  .usa-nav__primary .usa-nav__link#itc-web-content-survey-yes-no {
+    order: 1; /* Resets the button to its natural position */
+    width: 100%;
+    margin-top: 1rem; /* Gives some space above the button */
+  }
+}
