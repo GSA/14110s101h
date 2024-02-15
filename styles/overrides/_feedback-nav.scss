@@ -3,12 +3,12 @@
 #itc-web-content-survey-yes-no {
   // Your custom styles for the feedback button
   // For example:
-  background-color: $primary-color;
+
   @include transition(all 0.3s ease);
 
   &:hover,
   &:focus {
-    background-color: darken($primary-color, 10%);
+
   }
   
   // Positioning for larger screens
