@@ -20,13 +20,13 @@ guidenav: true
     <span style="color:rgb(17, 85, 204);">Federal AI Procurement Guider</span>
   </a>
 </p>
-<h1 href="chapter1">1. Introduction to AI Procurement</h1>
+<h1 id="chapter1">1. Introduction to AI Procurement</h1>
 <p>You're embarking on an essential journey towards understanding AI procurement within the federal government. This guide is crafted for you - whether you're a government purchaser looking to navigate the complexities of acquiring AI technologies or an industry professional aiming to align your offerings with governmental needs.&nbsp;</p>
 <p>Generative AI, a term you'll frequently encounter, encompasses AI models that can generate synthetic content like images, videos, text, and more by mimicking the structure of input data. On the other hand, Specialized Computing Infrastructure, a concept we'll delve into, refers to the IT infrastructure crucial for developing and deploying AI applications, including high-performance computing environments specialized for AI testbeds.</p>
 <p>This guide isn't static; it evolves as technology advances, ensuring that the foundational principles remain aligned with the Executive Order on AI, the OMB directive, federal laws, the Federal Acquisition Regulation (FAR), the NIST AI Risk Management Framework (AI RMF), and the Blueprint for an AI Bill of Rights. Our commitment is to provide a resource that not only informs but also adheres to ethical standards and best practices in AI procurement.</p>
 <p>It's worth noting that the content here was initially drafted with the help of a Large Language Model (LLM). This attribution highlights our commitment to leveraging cutting-edge tools while maintaining transparency in our processes.</p>
 <p>As you dive into this guide, remember that it's more than just a set of instructions; it's a pledge to foster innovation, clarity, and responsible governance in the dynamic field of AI procurement. Let's navigate this landscape together, ensuring our procurement practices are as advanced and ethical as the technologies we aim to harness.</p>
-<h1 href="chapter2">2. Understanding Generative AI</h1>
+<h1 id="chapter2">2. Understanding Generative AI</h1>
 <p>Generative AI stands out in the AI landscape for its ability to create new, synthetic data that resembles the original input data. This unique capability makes it a powerful tool in various applications, from content creation to data augmentation. As we delve into the world of generative AI, it's crucial to grasp not only its potential but also the best practices for its adoption within government enterprises.</p>
 <h2>Why Generative AI is Unique</h2>
 <ul>
@@ -49,7 +49,7 @@ guidenav: true
     <span style="color:rgb(17, 85, 204);">accompanying OMB memo</span>
   </a>
   as “IT Infrastructure,” defined as: “access to adequate IT infrastructure, including high-performance computing infrastructure specialized for AI training and inference, where necessary. Agencies should also ensure adequate access for AI developers to the software tools, open-source libraries, and deployment and monitoring capabilities necessary to rapidly develop, test, and maintain AI applications.”</p>
-<h1 href="chapter3">3. AI Procurement Process</h1>
+<h1 id="chapter3">3. AI Procurement Process</h1>
 <p>Procuring AI solutions, particularly generative AI models, requires a nuanced approach compared to traditional software subscriptions. This chapter outlines the steps and considerations necessary for acquiring AI technologies, emphasizing the unique aspects of generative AI procurement.</p>
 <h2>Traditional vs. Generative AI Procurement:</h2>
 <ul>
@@ -88,7 +88,7 @@ guidenav: true
 </ul>
 <p>These examples illustrate the breadth of GenAI applications, from space exploration and environmental conservation to workforce development and national security. Each case study demonstrates the practical benefits of GenAI, emphasizing its role in driving efficiency, enhancing accuracy, and fostering innovation within federal operations.</p>
 <p>As we explore these use cases, it's crucial to approach GenAI procurement with an understanding of best practices, ensuring safe and scalable access to these powerful technologies. This chapter aims to demystify the process, guiding you through the most common scenarios you're likely to encounter and offering insights into acquiring GenAI solutions responsibly.</p>
-<h1 href="chapter5">5. Acquisition Methods and Vehicles</h1>
+<h1 id="chapter5">5. Acquisition Methods and Vehicles</h1>
 <p>When it comes to acquiring AI solutions, the federal government has a variety of procurement options and vehicles at its disposal. Understanding these methods can help you select the most suitable path for your agency's needs, whether you're looking to access generative AI capabilities or build your own AI systems. Here, we break down the various procurement paths with brief explanations to guide you through the landscape of AI acquisition.</p>
 <ul>
   <li>GSA Schedules: The General Services Administration (GSA) offers multiple schedules that include AI solutions, such as IT Schedule 70 for information technology services and products, where agencies can find pre-vetted vendors offering AI and machine learning solutions.</li>
@@ -106,7 +106,7 @@ guidenav: true
   <li>Ethical and Responsible AI: Choose vendors that adhere to ethical AI principles, ensuring that AI solutions are developed and deployed responsibly.</li>
 </ul>
 <p>By leveraging these acquisition methods and vehicles, federal agencies can access the AI solutions they need to advance their missions while adhering to federal procurement regulations and standards. Remember, the goal is not just to acquire AI technology but to do so in a way that ensures security, compliance, and ethical use, aligning with the broader objectives of the federal government.</p>
-<h1 href="chapter6">6. Best Practices and Strategies</h1>
+<h1 id="chapter6">6. Best Practices and Strategies</h1>
 <p>In navigating AI procurement, adopting a strategic and responsible approach is key. Here are some universal guidelines to ensure an effective procurement process:</p>
 <ul>
   <li>Start with Clear Objectives: Clearly define what you aim to achieve with AI, focusing on specific problems or opportunities.</li>
@@ -119,7 +119,7 @@ guidenav: true
   <li>Ongoing Evaluation and Adjustment: AI technologies evolve rapidly. Regularly review and adjust your AI strategies to ensure they remain effective and aligned with your agency's goals.</li>
 </ul>
 <p>These strategies aim to demystify AI procurement, guiding you towards safe and scalable access to generative AI, and ensuring that your procurement practices are as advanced and ethical as the technologies you aim to harness.</p>
-<h1 href="chapter7">7. Agency Support and Resources</h1>
+<h1 id="chapter7">7. Agency Support and Resources</h1>
 <p>For effective AI procurement, a wealth of resources, tools, and support is available from various agencies and platforms:</p>
 <ul>
   <li>GSA's AI Resources: The General Services Administration (GSA) provides comprehensive guides, contracts, and toolkits to support AI procurement and implementation.</li>
@@ -129,7 +129,7 @@ guidenav: true
 </ul>
 <p>Additionally, our team's AI Procurement Dataset (AI-PD) and the AI Procurement Explorer (AI-PE) dashboard are invaluable tools, providing insights into federal AI acquisitions and trends.</p>
 <p>These resources are endorsed by key stakeholders across the government, reflecting a commitment to advancing AI procurement in a responsible, effective manner.</p>
-<h1 href="chapter8">8. Conclusion and Call to Action</h1>
+<h1 id="chapter8">8. Conclusion and Call to Action</h1>
 <p>In this guide, we've traversed the landscape of AI procurement, highlighting the pivotal role of generative AI, the procurement process, typical projects, acquisition methods, best practices, and the wealth of support resources available. Key takeaways include the importance of ethical considerations, the dynamic nature of AI technologies, and the collaborative efforts required for successful AI adoption.</p>
 <p>This is just the starting point—an MVP designed with flexibility in mind, housed in an HTML structure on GSA's GitHub to facilitate collaboration and continuous improvement. We invite you to join this evolving journey, contribute your insights, and help refine this guide.</p>
 <p>Engage with us on the GSA GitHub, submit your pull requests, and share your experiences. Together, let's break down barriers to responsible AI adoption, paving the way for innovative solutions that better serve the American people.</p>
