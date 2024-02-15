@@ -4,28 +4,9 @@
   // Your custom styles for the feedback button
   // For example:
 
-  @include transition(all 0.3s ease);
-
   &:hover,
   &:focus {
 
   }
   
-  // Positioning for larger screens
-  @media (min-width: $large-screen) {
-    position: absolute;
-    right: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  // Positioning for smaller screens
-  @media (max-width: $medium-screen) {
-    position: relative;
-    right: auto;
-    top: auto;
-    transform: none;
-    width: 100%;
-    margin-top: 1rem;
-  }
 }
