@@ -3,6 +3,7 @@ title: Guidance
 layout: layouts/page
 permalink: /guidance/
 guidenav: true
+ai-disclosure: true
 ---
 
 
