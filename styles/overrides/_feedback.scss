@@ -24,10 +24,6 @@
     @include at-media("widescreen") {
       pointer-events: auto;
     }
-
-    &#{$external-href} {
-      display: inline-block;
-    }
   }
 }
 
