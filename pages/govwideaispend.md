@@ -3,6 +3,7 @@ title: Gov Wide AI Spend
 layout: layouts/page
 permalink: /govwideaispend/
 sidenav: false
+synthetic-content: true
 ---
 
 <p>The AI Executive Order directs agencies to promote transparency and encourage data-informed decision making, so we've prepared a dataset and dashboard to explore the current state of Federal AI procurement.</p>
