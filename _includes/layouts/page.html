@@ -6,6 +6,11 @@ layout: layouts/base
 This template is for a single page that does not have a date associated with it. For example, an about page.
 {% endcomment %}
      <main>
+
+  {% if ai-disclosure == true %}
+          {% include "attribution-alert.html" %} 
+            {% endif %}
+          
 <div id="main-content" class="usa-layout-docs usa-section">
   <div class="grid-container">
     <div class="grid-row grid-gap">
@@ -13,8 +18,9 @@ This template is for a single page that does not have a date associated with it.
         {% if sidenav == true %}
       {% include "sidenav.html" %}
          {% elsif guidenav == true %}
-         {% include "guidenav.html" %}
+         {% include "guidenav.html" %} 
       {% endif %}
+         
         <div class="usa-layout-docs__main tablet:grid-col-9 usa-prose">
             {{ content }}
         </div>
