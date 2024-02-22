@@ -6,6 +6,9 @@ synthetic-content: true
 ---
 
 {% include "hero.html" %}
+  {% if synthetic-content == true %}
+          {% include "attribution-alert.html" %} 
+            {% endif %}
 {% include "tagline.html" %}
 {% comment %}{% include "highlights.html" %}{% endcomment %}
 
