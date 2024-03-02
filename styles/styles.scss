@@ -4,7 +4,11 @@
   $theme-image-path: '../node_modules/@uswds/uswds/dist/img',
   $theme-font-type-sans: 'public-sans',
   $theme-hero-image: '../_img/uploads/AI Banner A.png'
-  
+
+.usa-hero {
+      border-bottom: 1px solid #dfe1e2;
+}
+
 );
 
 @forward 'uswds';
@@ -14,4 +18,3 @@
 @forward "overrides/gh-commit-info";
 @forward "overrides/guidenav";
 @forward "overrides/feedback";
-@forward "overrides/hero";
