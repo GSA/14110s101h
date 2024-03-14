@@ -1,6 +1,6 @@
 ---
-title: Document with Sidenav
-permalink: /document-with-sidenav/
+title: About
+permalink: /about/
 layout: layouts/page
 sidenav: true
 ---
