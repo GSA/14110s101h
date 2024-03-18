@@ -4,6 +4,7 @@
   $theme-image-path: '../node_modules/@uswds/uswds/dist/img',
   $theme-font-type-sans: 'public-sans',
   $theme-hero-image: '../_img/uploads/AI Banner A.png'
+  $site-main-logo: '../_img/ai-guide-icon-white.svg'
 
 );
 
@@ -21,7 +22,7 @@
 }
 
 .usa-logo a {
-    background-image: url(_img/ai-guide-icon-white.svg);
+    background-image: url($site-main-logo);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
