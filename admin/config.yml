@@ -26,7 +26,7 @@ backend:
 media_folder: _img/uploads
 public_folder: uploads
 publish_mode: editorial_workflow
-logo_url: https://federalist.18f.gov/assets/images/federalist-logo.png
+logo_url: ./_img/ai-guide-icon-white.svg
 
 collections:
   - label: Posts
