@@ -11,8 +11,8 @@
 @forward 'uswds';
 @forward 'usa-identifier';
 
-@forward "overrides/gh-edit-page";
-@forward "overrides/gh-commit-info";
+//@forward "overrides/gh-edit-page";
+//@forward "overrides/gh-commit-info";
 @forward "overrides/guidenav";
 //@forward "overrides/logo";
 @forward "overrides/feedback";
@@ -20,4 +20,8 @@
 
 .usa-hero {
       border-bottom: 1px solid #dfe1e2;
+}
+
+.eo-14110 .usa-logo a {
+  background-image: url('/_img/uploads/ai-guide-icon-dark.svg');
 }
