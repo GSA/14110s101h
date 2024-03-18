@@ -1,6 +1,6 @@
 ---
-title: About
-permalink: /about/
+title: Info
+permalink: /info/
 layout: layouts/page
 sidenav: true
 ---
