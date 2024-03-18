@@ -20,3 +20,13 @@
 .usa-hero {
       border-bottom: 1px solid #dfe1e2;
 }
+.usa-logo a {
+    background-image: url($theme-main-logo);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: auto;
+    width: 100px;
+}
