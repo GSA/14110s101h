@@ -3,8 +3,8 @@
   $theme-font-path: '../node_modules/@uswds/uswds/dist/fonts',
   $theme-image-path: '../node_modules/@uswds/uswds/dist/img',
   $theme-font-type-sans: 'public-sans',
-  $theme-hero-image: '../_img/uploads/AI Banner A.png',
-  $theme-main-logo: '../_img/ai-guide-icon-dark.svg'
+  $theme-hero-image: '../_img/uploads/AI Banner A.png'
+  // $theme-main-logo: '../_img/ai-guide-icon-dark.svg'
 
 );
 
@@ -14,7 +14,7 @@
 @forward "overrides/gh-edit-page";
 @forward "overrides/gh-commit-info";
 @forward "overrides/guidenav";
-@forward "overrides/logo";
+//@forward "overrides/logo";
 @forward "overrides/feedback";
 @forward "overrides/tagline";
 
