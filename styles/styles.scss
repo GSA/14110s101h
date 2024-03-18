@@ -3,7 +3,8 @@
   $theme-font-path: '../node_modules/@uswds/uswds/dist/fonts',
   $theme-image-path: '../node_modules/@uswds/uswds/dist/img',
   $theme-font-type-sans: 'public-sans',
-  $theme-hero-image: '../_img/uploads/AI Banner A.png'
+  $theme-hero-image: '../_img/uploads/AI Banner A.png',
+  $theme-main-logo: '../_img/ai-guide-icon-dark.svg'
 
 );
 
@@ -18,15 +19,4 @@
 
 .usa-hero {
       border-bottom: 1px solid #dfe1e2;
-}
-
-.usa-logo a {
-    background-image: url(/img/ai-guide-icon-white.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    color: rgba(0, 0, 0, 0);
-    display: inline-block;
-    height: auto;
-    width: 100px;
 }
