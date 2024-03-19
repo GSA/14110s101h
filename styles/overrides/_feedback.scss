@@ -16,6 +16,7 @@
 
   .usa-button {
     margin-bottom: units(2);
+    line-height: 1.5;
     @include at-media("desktop") {
       margin: units(2) units(2) units(4);
     }
