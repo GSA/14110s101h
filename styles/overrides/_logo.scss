@@ -1,7 +1,6 @@
 
 @use "uswds-core" as *;
 
-$site-navbar-height: 12;
 $site-secondary-nav-input-height: 38px;
 $site-ink: 'black';
 //$site-primary-darker: 'bg-base-darker';
@@ -64,7 +63,7 @@ $site-ink: 'black';
     border-bottom: none !important;
 
     @include at-media("desktop") {
-      height: units($site-navbar-height) !important;
+      //height: units($site-navbar-height);
     }
   }
 }
