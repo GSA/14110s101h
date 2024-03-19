@@ -28,11 +28,13 @@
 
 #itc-web-content-survey-yes-no {
   // Your custom styles for the feedback button
-  // Forr example:
+  // For example:
 
   &:hover,
   &:focus {
 
   }
-  
+  &::before {
+    content: "Site in development"
+  }
 }
