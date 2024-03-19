@@ -1,17 +1,10 @@
 
 @use "uswds-core" as *;
 
-$site-navbar-height: 10;
+$site-navbar-height: 6rem;
 $site-secondary-nav-input-height: 38px;
 $site-ink: 'black';
 //$site-primary-darker: 'bg-base-darker';
-
-// Remove max-width from header containers
-// See https://github.com/uswds/uswds/issues/4851
-.site-header__navbar,
-.site-nav__inner {
-  max-width: none !important;
-}
 
 //
 // Header
@@ -29,13 +22,9 @@ $site-ink: 'black';
       margin-bottom: 0 !important;
     }
 
-    a {
-      color: color($site-ink);
-    }
-
     &__text {
       $logo-size-mobile: 3;
-      $logo-size-desktop: 3;
+      $logo-size-desktop: 5;
       //@include u-font("lang", "xs");
       line-height: units(5);
 
