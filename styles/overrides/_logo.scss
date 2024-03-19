@@ -24,8 +24,8 @@ $site-ink: 'black';
     }
 
     &__text {
-      $logo-size-mobile: 3;
-      $logo-size-desktop: 6;
+      $logo-size-mobile: 4;
+      $logo-size-desktop: 7;
       //@include u-font("lang", "xs");
       line-height: units(5);
 
