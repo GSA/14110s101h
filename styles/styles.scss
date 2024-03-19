@@ -4,11 +4,12 @@
   $theme-image-path: '../node_modules/@uswds/uswds/dist/img',
   $theme-font-type-sans: 'public-sans',
   //$theme-font-type-lang: 'true',
-  $site-ink: 'black',
   $theme-hero-image: '../_img/uploads/AI Banner A.png'
  // $theme-main-logo: '../_img/uploads/ai-guide-icon-dark.svg'
 
 );
+
+$site-ink: 'black';
 
 @forward 'uswds';
 @forward 'usa-identifier';
