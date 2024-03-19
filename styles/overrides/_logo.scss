@@ -1,11 +1,112 @@
 
-.usa-logo a {
-    background-image: url($theme-main-logo);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    color: rgba(0, 0, 0, 0);
-    display: inline-block;
-    height: auto;
-    width: 100px;
+@use "uswds-core" as *;
+
+$site-navbar-height: 10;
+$site-secondary-nav-input-height: 38px;
+
+// Remove max-width from header containers
+// See https://github.com/uswds/uswds/issues/4851
+.site-header__navbar,
+.site-nav__inner {
+  max-width: none !important;
+}
+
+//
+// Header
+// ==========================================================================
+.site-header {
+  @include typeset("lang");
+
+  @include at-media("desktop") {
+    border-bottom: none;
+  }
+
+  .site-logo {
+    @include at-media("desktop") {
+      margin-top: units(2px);
+      margin-bottom: 0 !important;
+    }
+
+    a {
+      color: color($site-ink);
+    }
+
+    &__text {
+      $logo-size-mobile: 3;
+      $logo-size-desktop: 3;
+      @include u-font("lang", "xs");
+      line-height: units(5);
+
+      &::before {
+        @include u-square($logo-size-mobile);
+        content: "";
+        //background-image: url("../img/uswds-logo/4c-lg-on-white.png");
+        background-image: url('../_img/ai-guide-icon-dark.svg');
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        display: inline-block;
+        margin-left: units(-2px);
+        margin-right: units(0.5);
+        position: relative;
+        top: units(-1px);
+        vertical-align: middle;
+
+        @include at-media("desktop") {
+          @include u-square($logo-size-desktop);
+        }
+      }
+
+      @include at-media("desktop") {
+        @include typeset("lang", "lg", 1);
+        line-height: units(9);
+        display: inherit;
+        letter-spacing: ls(-1);
+      }
+    }
+  }
+
+  .usa-menu-btn {
+    font-size: fs("lang", "3xs");
+  }
+
+  &__navbar {
+    border-bottom: none !important;
+
+    @include at-media("desktop") {
+      height: units($site-navbar-height) !important;
+    }
+  }
+}
+
+.site-title {
+  &--short {
+    @include at-media("mobile-lg") {
+      display: none;
+    }
+  }
+
+  &--long {
+    display: none;
+
+    @include at-media("mobile-lg") {
+      display: initial;
+    }
+  }
+}
+
+.site-header--dark {
+  background-color: color($site-primary-darker);
+
+  .site-logo {
+    a {
+      color: color("white");
+    }
+
+    .usa-logo__text {
+      &::before {
+       // background-image: url("../img/uswds-logo/4c-lg-on-black.png");
+        background-image: url('../_img/ai-guide-icon-dark.svg');
+      }
+    }
+  }
 }
