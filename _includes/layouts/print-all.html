@@ -7,17 +7,17 @@
 
 <body>
   <div class="print-all">
-    <div class="ai-guidance ai-guidance--cover">
+    <div class="ai-guidance__page ai-guidance__page--cover">
         {% image_with_class "./_img/ai-guide-icon-dark.svg" "width-100 height-auto float-left margin-x-1 margin-top-neg-105" "Site logo" %}
         {% include "logo.html" %}
-      <h1>Federal Procurement Guidance for Generative AI and Specialized Computing Infrastructure</h1>
       <p class="intro">
         Guidance for government purchasers and acquisition professionals navigating the complexities of acquiring AI technologies.
       </p>
       <p>Printed <time id="now">today</time>. For the most up-to-date content, visit the live site at 
-      <b><nowrap>{{ '/guidance/' | url }}</nowrap></b>.</p>
+      <b><nowrap>{{ '/guidance/' | site.baseurl }}</nowrap></b>.</p>
     </div>
     <div class="ai-guidance__page ai-guidance__page--toc">
+        <h2>Table of Contents</h2>
         {% include "guidenav.html" %} 
       <div class="ai-guidance__page">
 
