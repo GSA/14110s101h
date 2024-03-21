@@ -360,7 +360,7 @@ synthetic-content: true
   <h2>2.2 Emerging Project Areas and Use Cases
   </h2>
   
-  <p>As generative AI is used by more individuals and companies, new areas of experimentation and use cases emerge. Some of them have potential applications for the government to increase their own efficiencies, lower operating costs, and prevent and detect criminal activity against the government. xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  <p>As generative AI is used by more individuals and companies, new areas of experimentation and use cases emerge. Some of them have potential applications for the government to increase their own efficiencies, lower operating costs, and prevent and detect criminal activity against the government. 
   </p>
   
   <h4>Automated Documentation Policy Drafting
@@ -614,7 +614,7 @@ synthetic-content: true
   <h3>3.5.2 Acquisition Strategies for GenAI
   </h3>
   
-  <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  <p>Pending
   </p>
   
   <h2>3.6 Assess the marketplace.
