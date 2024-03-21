@@ -4,4 +4,4 @@ layout: layouts/print-all
 permalink: /print-all/
 ---
 
-{{ currentGuidance }}
+{{ include "guidance-content.html" }}
