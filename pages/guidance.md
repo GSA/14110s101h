@@ -6,7 +6,7 @@ guidenav: true
 synthetic-content: true
 ---
 
-{% capture current-guidance %}
+{% capture currentGuidance %}
 <article class="usa-prose">
   <h1>Federal Procurement Guidance for Generative AI and Specialized Computing Infrastructure</h1>
   
@@ -1410,5 +1410,5 @@ synthetic-content: true
   </ul>
   
  {% endcapture %} 
-
+{{ currentGuidance }}
 </article>
