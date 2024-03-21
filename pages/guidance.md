@@ -10,6 +10,51 @@ synthetic-content: true
 <article class="usa-prose">
   <h1>Federal Procurement Guidance for Generative AI and Specialized Computing Infrastructure</h1>
   
+<h2>Executive Order 14110&nbsp;
+  </h2>
+  <p>Executive Order 14110 Section 10.1(h) directed GSA to facilitate agencies’ access to commercial AI capabilities.&nbsp;
+  </p>
+  <p>“Within 180 days of the date of this order, to facilitate agencies’ access to commercial AI capabilities, the Administrator of General Services, in coordination with the Director of OMB, and in collaboration with the Secretary of Defense, the Secretary of Homeland Security, the Director of National Intelligence, the Administrator of the National Aeronautics and Space Administration, and the head of any other agency identified by the Administrator of General Services, shall take steps consistent with applicable law to facilitate access to Federal Government-wide acquisition solutions for specified types of AI services and products, such as through the creation of a resource guide or other tools to assist the acquisition workforce.&nbsp; Specified types of AI capabilities shall include generative AI and specialized computing infrastructure.”
+  </p>
+  <h3>Assisting the Acquisition Workforce
+  </h3>
+  <p>This guide is primarily meant for government purchasers and acquisition professionals navigating the complexities of acquiring AI technologies.
+  </p>
+  <p>AI can be very difficult to understand especially for someone who isn’t a technologist.&nbsp;
+  </p>
+  <p>As an acquisition professional, it is critical for you to work with both technical subject matter experts (SMEs) and program staff who can speak to their own needs and goals.
+  </p>
+  <p>While those in the acquisition community probably don’t need to become experts in AI, a basic understanding of certain AI terms will help you make better decisions about what to buy and how.
+  </p>
+  <p>To help, this guide also attempts to simplify complex technical IT and AI concepts to make them easier for non-technologists to understand. In some cases, this guide may over-simplify for the sake of clarity; apologies for any problems this causes.
+  </p>
+  <h3>This is Version 1.0
+  </h3>
+  <p>This guide isn’t static. It’s meant to evolve as technology advances while aligning with the Executive Order on AI, the OMB directive, federal laws, the Federal Acquisition Regulation (FAR), the NIST AI Risk Management Framework (AI RMF), and the Blueprint for an AI Bill of Rights.
+  </p>
+  <p>It’s designed with flexibility, housed in an HTML structure on GSA’s GitHub to facilitate collaboration and continuous improvement.&nbsp;
+  </p>
+  <p>Links were verified just prior to the site’s launch. If you do happen to find a bad link, please report it here.
+  </p>
+  <h3>Help make this guide better.
+  </h3>
+  <p>Please join this evolving journey, contribute your insights and help refine this guide.
+  </p>
+  <p>Engage on the GSA GitHub, submit pull requests and share your experiences.&nbsp;
+  </p>
+  <p>Together, let’s break down barriers to responsible AI adoption, paving the way for innovative solutions that better serve the American people.
+  </p>
+  <p>This guide is focused more on the needs of civilian agencies’ Generative AI needs, Defense, National Security and the Intelligence Community have very specific needs and procurement solutions that have been tailored for their requirements.
+  </p>
+  <h3>Companies or Product Mentions are not Endorsements
+  </h3>
+  <p>We may reference actual companies and/or offerings to define, illustrate or explain a concept. Do not consider these recommendations or disparagements. We do not endorse any company or their works.
+  </p>
+  <h3>Synthetic Content Disclosure
+  </h3>
+  <p>Some of the content in this guide was drafted with the help of Artificial Intelligence tools like Large Language Models (LLMs). This attribution highlights our commitment to leveraging cutting-edge tools while maintaining transparency in our processes. All content in this guide has been reviewed by humans.
+  </p>
+  
   <h2 id="chapter1">1. Introduction to AI Procurement</h2>
  <p>You're embarking on an essential journey towards understanding AI procurement within the federal government. This guide is crafted for you - whether you're a government purchaser looking to navigate the complexities of acquiring AI technologies or an industry professional aiming to align your offerings with governmental needs.</p>
 
