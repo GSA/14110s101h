@@ -8,5 +8,5 @@ synthetic-content: true
 
 
 <article class="usa-prose">
-{{ include "guidance-content.html" }}
+{% include "guidance-content.html" %}
 </article>
