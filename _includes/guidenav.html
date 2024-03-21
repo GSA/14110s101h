@@ -30,11 +30,13 @@ _layouts/page.html layout template, or you can add "sidenav: true" in the front-
       <li class="usa-sidenav__item">
       <a href="#chapter8">8. Frequently Asked Questions</a>
       </li>
+      {% if guidenav == true %} 
       <li class="usa-sidenav__item">
-        <a href="/guidance/print-all" target="_blank" class="usa-button usa-button margin-1">
+        <a href="/print-all-guidance/" target="_blank" class="usa-button usa-button margin-1">
           Print or Save as PDF
         </a>
       </li>
+      {% endif %} 
     </ul>
   </nav>
 </aside>
