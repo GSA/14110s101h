@@ -697,7 +697,7 @@ synthetic-content: true
   <h4>Estimating Costs for Generative AI Solutions
   </h4>
   
-  <div>
+
     <table class="usa-table" style="width: 100%;">
   <caption>Fees paid by agency
   </caption>
