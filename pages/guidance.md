@@ -722,8 +722,7 @@ synthetic-content: true
     </tr>
   </tbody>
 </table>
-<p>&nbsp;
-</p>
+
 <table class="usa-table">
   <caption>Questions to ask when estimating costs
   </caption>
@@ -748,7 +747,6 @@ synthetic-content: true
         </p>
         <p>Do we need a service or support layer to help us use the tools?
         </p>
-
       </td>
       <td>
         <p>How much data will we input?
@@ -763,7 +761,6 @@ synthetic-content: true
         </p>
         <p>Do we need a service or support layer to help us use the tools?
         </p>
-
       </td>
       <td>
         <p>What features do we need to use and which tiers support those features?
@@ -778,8 +775,7 @@ synthetic-content: true
     </tr>
   </tbody>
 </table>
-  </div>
-  
+
   <h3>3.7.3 Developing estimates for using Generative AI tools
   </h3>
   <p>Costs for generative AI tools can add up quickly so understanding your agency’s use cases, desired outcomes, and internal policies are an essential starting point for developing estimates. Generative AI tools and LLMs continue to be trained and evolve as companies and product end users identify and refine use cases and capabilities which can be enhanced with generative AI.
