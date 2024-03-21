@@ -341,9 +341,6 @@
             width: 7.5in;
             margin: .25in;
             page-break-after: always;
-            .usa-layout-docs-sidenav tablet:grid-col-3 {
-width: 100%;
-            }
       }
 
       @media screen {
@@ -377,10 +374,8 @@ width: 100%;
             padding-top: 3rem;
       }
 
-      .ai-guidance__page--toc h4 {
-            //margin: .5rem 0 .5rem 4rem;
-          //  font-weight: 400;
-            //font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+      .ai-guidance__page--toc  {
+         width:100%;
       }
 
       @media print {

@@ -1,47 +1,54 @@
-
 <!doctype html>
 <html lang="en">
+
 <head>
-    {% include "meta.html" %}
+  {% include "meta.html" %}
 </head>
 
 <body>
   <div class="print-all">
     <div class="ai-guidance__page ai-guidance__page--cover">
-     <!--  {% image_with_class "./_img/ai-guide-icon-dark.svg" "width-100 height-auto float-left margin-x-1 margin-top-neg-105" "Site logo" %}
+      <!--  {% image_with_class "./_img/ai-guide-icon-dark.svg" "width-100 height-auto float-left margin-x-1 margin-top-neg-105" "Site logo" %}
        -->
-        <div class = "site-header">
+      <div class="site-header">
         {% include "logo.html" %}
-    </div>
+      </div>
       <p class="intro">
-        Guidance for government purchasers and acquisition professionals navigating the complexities of acquiring AI technologies.
+        Guidance for government purchasers and acquisition professionals navigating the complexities of acquiring AI
+        technologies.
       </p>
-      <p>Printed <time id="now">today</time>. For the most up-to-date content, visit the live site at 
-      <b><nowrap>{{ '../guidance/' | url }}</nowrap></b>.</p>
+      <p>Printed <time id="now">today</time>. For the most up-to-date content, visit the live site at
+        <b>
+          <nowrap>{{ '../guidance/' | url }}</nowrap>
+        </b>.
+      </p>
     </div>
     <div class="ai-guidance__page ai-guidance__page--toc">
-        <h2>Table of Contents</h2>
-        {% include "guidenav.html" %} 
-      <div class="ai-guidance__page">
+      <h2>Table of Contents</h2>
+      {% include "guidenav.html" %}
+    </div>
+    <div class="ai-guidance__page">
 
-        <div class="ai-guidance__content">
-          {{ content }}
-        </div>
-
-          <p>Thank you for printing the Federal Procurement Guidance for Generative AI and Specialized Computing Infrastructure, a resource maintained by the AI Acquisition Resource Center. You can return to print a new version and see recent updates at 
-          <b><nowrap>{{ './guidance/' | url }}</nowrap></b>.
-
+      <div class="ai-guidance__content">
+        {{ content }}
       </div>
 
-  </div>
-  <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var today = new Date();
-    document.getElementById("now").innerHTML = today.toLocaleDateString();
-    document.getElementById("now").setAttribute("datetime", today.toISOString());
-    setTimeout( ()=> {
-      window.print();
-    }, 100)
-  });
-</script>
+      <p>Thank you for printing the Federal Procurement Guidance for Generative AI and Specialized Computing
+        Infrastructure, a resource maintained by the AI Acquisition Resource Center. You can return to print a new
+        version and see recent updates at
+        <b>
+          <nowrap>{{ './guidance/' | url }}</nowrap>
+        </b>.
+
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var today = new Date();
+        document.getElementById("now").innerHTML = today.toLocaleDateString();
+        document.getElementById("now").setAttribute("datetime", today.toISOString());
+        setTimeout(() => {
+          window.print();
+        }, 100)
+      });
+    </script>
 </body>
