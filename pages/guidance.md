@@ -698,97 +698,86 @@ synthetic-content: true
   </h4>
   
   <div>
-    <table class="usa-table" style="width:100%">
-      <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <p>Subscriptions
-            </p>
-          </td>
-          <td>
-            <p>Usage
-            </p>
-          </td>
-          <td>
-            <p>Feature Tiers
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>Fees Paid
-              
-              by Agency
-            </p>
-          </td>
-          <td>
-            <p>Per month or year for each account that renews at the end of the term until canceled.
-            </p>
-          </td>
-          <td>
-            <p>Per the amount of data inputted or outputted, the time or resources used on a particular platform or the quality of output.
-            </p>
-          </td>
-          <td>
-            <p>Per the group of functions and features regardless of consumption/usage or number of users.
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>Questions to Ask when Estimating Costs
-            </p>
-          </td>
-          <td>
-            <p>How many unique accounts does the agency program need?
-            </p>
-            
-            <p>How long will we need accounts for (a few months, a year or more)?
-            </p>
-            
-            <p>What other base subscriptions are required to access the service?
-            </p>
-            
-            <p>Do we need a service or support layer to help us use the tools?
-            </p>
-          </td>
-          <td>
-            <p>How much data will we input?
-            </p>
-            
-            <p>How much data will we output?
-            </p>
-            
-            <p>What quality of output do we want?
-            </p>
-            
-            <p>How much time (per day and per month) will the AI service be used?
-            </p>
-            
-            <p>How many different tools will use the AI service?
-            </p>
-            
-            <p>Do we need a service or support layer to help us use the tools?
-            </p>
-          </td>
-          <td>
-            <p>What features do we need to use and which tiers support those features?
-            </p>
-            
-            <p>What are the limits (number of accounts, total usage, etc.) for using those AI tools at that tier of service?
-            </p>
-            
-            <p>Can we customize the features we buy in each tier or are they preset?
-            </p>
-            
-            <p>Do we need a service or support layer to help us use the tools?
-            </p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <table class="usa-table" style="width: 100%;">
+  <caption>Fees paid by agency
+  </caption>
+  <thead>
+    <tr>
+      <th scope="col">Subscriptions
+      </th>
+      <th scope="col">Usage
+      </th>
+      <th scope="col">Feature Tiers
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Per month or year for each account that renews at the end of the term until canceled.
+      </td>
+      <td>Per the amount of data inputted or outputted, the time or resources used on a particular platform or the quality of output.
+      </td>
+      <td>Per the group of functions and features regardless of consumption/usage or number of users.
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>&nbsp;
+</p>
+<table class="usa-table">
+  <caption>Questions to ask when estimating costs
+  </caption>
+  <thead>
+    <tr>
+      <th scope="col">Subscriptions
+      </th>
+      <th scope="col">Usage
+      </th>
+      <th scope="col">Feature Tiers
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <p>How many unique accounts does the agency program need?
+        </p>
+        <p>How long will we need accounts for (a few months, a year or more)?
+        </p>
+        <p>What other base subscriptions are required to access the service?
+        </p>
+        <p>Do we need a service or support layer to help us use the tools?
+        </p>
+
+      </td>
+      <td>
+        <p>How much data will we input?
+        </p>
+        <p>How much data will we output?
+        </p>
+        <p>What quality of output do we want?
+        </p>
+        <p>How much time (per day and per month) will the AI service be used?
+        </p>
+        <p>How many different tools will use the AI service?
+        </p>
+        <p>Do we need a service or support layer to help us use the tools?
+        </p>
+
+      </td>
+      <td>
+        <p>What features do we need to use and which tiers support those features?
+        </p>
+        <p>What are the limits (number of accounts, total usage, etc.) for using those AI tools at that tier of service?
+        </p>
+        <p>Can we customize the features we buy in each tier or are they preset?
+        </p>
+        <p>Do we need a service or support layer to help us use the tools?
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
   </div>
   
   <h3>3.7.3 Developing estimates for using Generative AI tools
