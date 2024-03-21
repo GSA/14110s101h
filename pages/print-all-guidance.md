@@ -1,7 +1,7 @@
 ---
 title: Print Guidance
 layout: layouts/print-all
-permalink: /print-all-guidance/
+permalink: /guidance/print-all
 ---
 
 <p>Test here</p>
