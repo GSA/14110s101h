@@ -6,7 +6,7 @@ guidenav: true
 synthetic-content: true
 ---
 
-
+{% capture current-guidance %}
 <article class="usa-prose">
   <h1>Federal Procurement Guidance for Generative AI and Specialized Computing Infrastructure</h1>
   
@@ -1409,6 +1409,6 @@ synthetic-content: true
     <li>Unused genAI capabilities can be expensive and take away from understanding whether the capabilities actually enhance business/customer value.</li>
   </ul>
   
-  
+ {% endcapture %} 
 
 </article>
