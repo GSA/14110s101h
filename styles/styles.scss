@@ -341,6 +341,9 @@
             width: 7.5in;
             margin: .25in;
             page-break-after: always;
+            .usa-layout-docs-sidenav tablet:grid-col-3 {
+width: 100%;
+            }
       }
 
       @media screen {
