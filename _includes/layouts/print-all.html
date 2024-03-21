@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    {% include "meta.html" %}
+</head>
+
+<body>
+  <div class="print-all">
+    <div class="ai-guidance ai-guidance--cover">
+        {% include "logo.html" %}
+      <h1>Federal Procurement Guidance for Generative AI and Specialized Computing Infrastructure</h1>
+      <p class="intro">
+        Guidance for government purchasers and acquisition professionals navigating the complexities of acquiring AI technologies.
+      </p>
+      <p>Printed <time id="now">today</time>. For the most up-to-date content, visit the live site at 
+      <b><nowrap>{{ site.url }}/guidance/</nowrap></b>.</p>
+    </div>
+    <div class="ai-guidance__page ai-guidance__page--toc">
+        {% include "guidenav.html" %} 
+      <div class="ai-guidance__page">
+
+        <div class="ai-guidance__content">
+          {{ content }}
+        </div>
+
+          <p>Thank you for printing the Federal Procurement Guidance for Generative AI and Specialized Computing Infrastructure, a resource maintained by the AI Acquisition Resource Center. You can return to print a new version and see recent updates at 
+          <b><nowrap>{{ site.url }}/guidance/</nowrap></b>.
+
+      </div>
+    {% endfor %}
+  </div>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var today = new Date();
+    document.getElementById("now").innerHTML = today.toLocaleDateString();
+    document.getElementById("now").setAttribute("datetime", today.toISOString());
+    setTimeout( ()=> {
+      window.print();
+    }, 100)
+  });
+</script>
+</body>
