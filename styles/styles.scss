@@ -16,7 +16,6 @@
 //@forward "overrides/gh-edit-page";
 //@forward "overrides/gh-commit-info";
 @forward "overrides/guidenav";
-//@forward "overrides/logo";
 @forward "overrides/feedback";
 @forward "overrides/tagline";
 @forward "overrides/logo";
@@ -374,8 +373,8 @@
             padding-top: 3rem;
       }
 
-      .ai-guidance__page--toc  {
-         width:100%;
+      .ai-guidance__page--toc {
+            width: 100%;
       }
 
       @media print {
