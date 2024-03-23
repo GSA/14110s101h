@@ -80,17 +80,21 @@ sites will only have two while others may have six to eight. {% endcomment %}
 </section>
 <section class="usa-section usa-section--light">
   <div class="grid-container">
-  <div class="grid-row grid-gap">
-    <div class="tablet:grid-col-6 tablet:display-flex">
-  <h1>Tell us what you think</h1>
-  <p class="font-sans-lg line-height-sans-4">
-    Notice this feedback button? It's on every page. We value your insights. Please send them. 
-  </p>
+    <div class="grid-row grid-gap">
+      <div class="tablet:grid-col-6">
+        <h1>Tell us what you think</h1>
+        <p class="font-sans-lg line-height-sans-4">
+          Every page has a feedback button.
+        </p>
+      </div>
+      <div class="tablet:grid-col-6">
+        <div class="tablet:display-none desktop:display-block">
+          {% uswds_icon "arrow_forward" "--size-10" %}
+        </div>
+        <div class="tablet:display-block desktop:display-none">
+          {% uswds_icon "arrow_down" %}
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="tablet:grid-col-6 tablet:display-flex">
-    <div class="tablet:display-none desktop:display-block">{% uswds_icon "arrow_forward" %}</div>
-    <div class="tablet:display-block desktop:display-none">{% uswds_icon "arrow_down" %}</div>
-  </div>
-  </div>
-</div>
 </section>
