@@ -6,6 +6,7 @@
   @include at-media("desktop") {
     display: flex;
     justify-content: flex-end;
+    align-items: end;
   }
   @include at-media("widescreen") {
     bottom: 0;

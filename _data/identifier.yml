@@ -2,7 +2,7 @@ ariaLabel: Agency identifier,,,,,,
 logos:
   - path: img/gsa-logo.svg
     alt: GSA Logo
-domain: AI Acquisition Resource Center
+domain: Generative AI Acquisition Resource Guide
 disclaimer: |-
   <span aria-hidden="true">An </span>official website of the <a href=https://gsa.gov>General Services Administration</a>
 requiredLinks:
