@@ -78,7 +78,7 @@ sites will only have two while others may have six to eight. {% endcomment %}
     </div>
   </div>
 </section>
-<section class="usa-section usa-section--light">
+<section class="usa-section usa-section--light padding-0">
   <div class="grid-container">
     <div class="grid-row grid-gap">
       <div class="desktop:grid-col-6">
@@ -87,8 +87,8 @@ sites will only have two while others may have six to eight. {% endcomment %}
           Every page has a feedback button.
         </p>
       </div>
-      <div class="desktop:grid-col-6 display-flex flex-column flex-align-center">
-        <div class="mobile-lg:display-none desktop:display-block">
+      <div class="desktop:grid-col-6 display-flex flex-row flex-align-center">
+        <div class="mobile-lg:display-none desktop:display-flex">
           {% image_with_class "./node_modules/@uswds/uswds/dist/img/usa-icons/arrow_forward.svg" "usa-icon--size-9" "arrow" %}
         </div>
         <div class="tablet:display-block desktop:display-none">
@@ -97,5 +97,4 @@ sites will only have two while others may have six to eight. {% endcomment %}
       </div>
     </div>
   </div>
-  {% uswds_icon "arrow_forward" "usa-icon--size-9" %}
 </section>
