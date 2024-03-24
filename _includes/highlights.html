@@ -89,10 +89,14 @@ sites will only have two while others may have six to eight. {% endcomment %}
       </div>
       <div class="desktop:grid-col-6 display-flex flex-column flex-align-center">
         <div class="mobile-lg:display-none desktop:display-block">
-          {% uswds_icon "arrow_forward" "--size-10" %}
+          <svg class="usa-icon--size-10" aria-hidden="true" focusable="false" role="img">
+            <use xlink:href="/assets/img/sprite.svg#arrow_forward"></use>
+          </svg>
         </div>
         <div class="tablet:display-block desktop:display-none">
-          {% uswds_icon "arrow_downward" "--size-10" %}
+          <svg class="usa-icon--size-10" aria-hidden="true" focusable="false" role="img">
+            <use xlink:href="/assets/img/sprite.svg#arrow_downward"></use>
+          </svg>
         </div>
       </div>
     </div>
