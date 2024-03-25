@@ -11,7 +11,7 @@ manage your navigation system {% endcomment %}
     id="menu-navigation"
     aria-label="Menu navigation"
     role="navigation"
-    class="usa-nav"
+    class="usa-nav bg-primary-darker"
   >
     <div class="usa-nav__inner">
       <button class="usa-nav__close">
@@ -27,7 +27,7 @@ manage your navigation system {% endcomment %}
           <a
             class="usa-nav__link{% if basedir == linkdir %} usa-current{% endif %}"
             href="{{ nav_item.url | url }}"
-            ><span>{{ nav_item.name | escape }}</span></a
+            ><span class="text-base-lighter">{{ nav_item.name | escape }}</span></a
           >
         </li>
         {% else %} {% assign nav_id = 'primary-nav-' | append: forloop.index %}
@@ -37,7 +37,7 @@ manage your navigation system {% endcomment %}
             aria-expanded="false"
             aria-controls="{{ nav_id }}"
           >
-            <span>{{ nav_item.name | escape }}</span>
+            <span class="text-base-lighter">{{ nav_item.name | escape }}</span>
           </button>
           <ul id="{{ nav_id }}" class="usa-nav__submenu">
             {% for subnav_item in nav_item.children %}
