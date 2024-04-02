@@ -11,17 +11,7 @@ synthetic-content: true
   data-informed decision making, so we've prepared a dataset and dashboard to
   help you explore the current state of GenAI procurement in the Federal Government.
 </p>
-<h2>AI Procurement Dataset</h2>
-<p>
-  We queried the <a href="https://www.fpds.gov/" title="Federal Procurement Data System" target="_blank" class="usa-link--external">Federal Procurement Data System</a>
-  to prepare a comprehensive analysis of GenAI-related contract actions from
-  2019 to 2023. It's designed to aid the acquisition workforce in
-  making data-driven decisions when they go to procure AI and specialized
-  computing infrastructure.
-</p>
-<a href="#" class="usa-button usa-button--big usa-button--secondary"
-  >Coming soon: Download the Dataset</a
->
+
 <h2>AI Procurement Dashboard</h2>
 <p>
   This is an interactive Tableau dashboard designed to bring the AI Procurement
@@ -38,4 +28,15 @@ synthetic-content: true
   target="_blank"
   class="usa-button usa-button--big usa-button--primary usa-link--external"
   >Access the Dashboard</a
+>
+<h2>AI Procurement Dataset</h2>
+<p>
+  We queried the <a href="https://www.fpds.gov/" title="Federal Procurement Data System" target="_blank" class="usa-link--external">Federal Procurement Data System</a>
+  to prepare a comprehensive analysis of GenAI-related contract actions from
+  2019 to 2023. It's designed to aid the acquisition workforce in
+  making data-driven decisions when they go to procure AI and specialized
+  computing infrastructure.
+</p>
+<a href="#" class="usa-button usa-button--big usa-button--secondary"
+  >Coming soon: Download the Dataset</a
 >
