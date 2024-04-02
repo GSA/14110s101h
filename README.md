@@ -72,10 +72,10 @@ in `_data/site.yml`.
 
 ```
 dap:
-  # agency: your-agency
+  # agency: GSA
 
   # Optional
-  # subagency: your-subagency
+  # subagency: FAS-ITC
 ```
 
 ✅ [Google Analytics](https://analytics.google.com/analytics/web/) integration - If you have a Google Analytics account to use, add your "ua" to `_data/site.yml` and uncomment the appropriate lines. Ex.
