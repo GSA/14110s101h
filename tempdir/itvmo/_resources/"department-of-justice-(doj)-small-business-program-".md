@@ -1,0 +1,15 @@
+---
+highlight: "false" 
+title: "Department of Justice (DoJ) Small Business Program "
+description: "The DoJ works to ensure that small businesses, including small, disadvantaged businesses, woman owned small businesses, service disabled veteran owned small businesses and HUBZone certified businesses have the maximum practicable opportunity to participate as prime contractors and subcontractors. "
+url-link: "https://www.justice.gov/osdbu"
+type: "HTML"
+gov-only: "false"
+is-external: "true"
+publication-date: "January 01, 2023"
+reading-time: "5"
+resource-type: "information-slick"
+filter: "small-business"
+audience: "industry-all-businesses"
+branded-offerings: "small-business-support"
+---

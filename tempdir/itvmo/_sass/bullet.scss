@@ -1,0 +1,125 @@
+ul.experiences li {
+    height: auto !important;
+    max-width: none !important;
+    position:relative; /* so that pseudoelements are positioned relatively to their "li"s*/
+    /* use padding-bottom instead of margin-bottom.*/ 
+    margin-bottom: 0; /* This overrides previously specified margin-bottom */
+    padding-bottom: 2.5em;
+}
+
+ul.experiences li:after {
+    /* bullets */
+    content: url('../images/icons/bullet.svg');
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    position: absolute;
+    left: -26px;
+    top: 3px; 
+}
+
+ul.experiences li:before {
+    /* lines */
+    content:"";
+    position: absolute;
+    left: -17px; 
+    border-left: 1px solid #BCBCBC;
+    height: 100%;
+    width: 1px;
+    top: -19px;
+}
+
+ul.experiences li:first-child:before {
+   /* first li's line */
+   /* top: 6px; moves the line down so that it disappears under the bullet. Adjust manually */
+}
+
+ul.experiences li:last-child:before {
+    /* last li's line */
+   height: 30px; /* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */
+}
+
+
+ul.experiences {
+    display: block !important;
+    padding-left: 15px !important;
+    margin-top: -21px;
+    padding-top: 40px;
+    margin-left: 30px;
+
+}
+ul.experiences li {
+    padding-left: 12px;
+    list-style: none;
+}
+
+.bulletText {
+    font-size: 1em;
+    line-height:2;
+    .external-icon
+    {
+        margin-left: 5px;
+    }
+}
+.dropdown-bulletText
+{
+
+}
+.dropdown-topLine
+{
+    overflow: unset !important;
+    margin-top: -6px !important;
+}
+
+.pre-bulletText{
+    /* height: 100px;
+    width: 80px;
+    position: relative; */
+}
+
+.bulletSections{
+ /* border-top:2px solid #BCBCBC; */
+/* margin-top: 10px; */
+position: relative;
+
+}
+
+.topLine{
+    margin-top:-18px;
+    width: 54px;
+    height: 1px;
+    background-color: white;
+    padding: 0px 10px 10px 0px;
+    border-bottom: 1px solid #d7d7d7;
+    position: relative;
+    z-index: 10;
+
+}
+
+.topLine:after{
+    background-color: #FF5400;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 6px;
+    left: 10px;
+    right: 10px;
+    bottom: 0px;
+    z-index: -1;
+}
+
+//Overwrite the ul.experiences style
+ul.normal-list li:after,
+ul.normal-list li:before {
+    content: none;
+}
+ul.normal-list {
+    list-style-type: disc;
+    margin-left: 10px;
+    li 
+    {
+        list-style: disc !important;
+        padding-bottom: 0px;
+        // height: 28px !important;
+    }
+}

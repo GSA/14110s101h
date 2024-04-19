@@ -1,0 +1,15 @@
+---
+highlight: "false" 
+title: "Federal Register"
+description: "Official journal of the federal government of the United States that contains government agency rules, proposed rules, and public notices. It is published every weekday, except on federal holidays."
+url-link: "https://www.federalregister.gov/"
+type: "HTML"
+gov-only: "false"
+is-external: "true"
+publication-date: "August 01, 2023"
+reading-time: "20"
+resource-type: "guidance"
+filter: "p-filter"
+audience: "industry-all-businesses"
+branded-offerings: "acquisition-policy-it-category"
+---

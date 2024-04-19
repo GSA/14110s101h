@@ -1,0 +1,15 @@
+---
+highlight: "false" 
+title: "General Services Administration (GSA) Small Business Program "
+description: "The resource page will help small businesses learn more about doing business with GSA, government contracting opportunities, and marketing your contract."
+url-link: "https://www.gsa.gov/small-business"
+type: "HTML"
+gov-only: "false"
+is-external: "true"
+publication-date: "January 01, 2023"
+reading-time: "5"
+resource-type: "information-slick"
+filter: "small-business"
+audience: "industry-all-businesses"
+branded-offerings: "small-business-support"
+---

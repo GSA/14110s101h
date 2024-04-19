@@ -1,0 +1,58 @@
+{% comment %}
+You shouldn't have to edit this page very often. But if you want to modify some of the meta-data for the
+site, this is the place to do it.
+{% endcomment %}
+
+<head>
+  <!-- Basic Page Needs
+    ================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name=“robots” content=“index,follow”>
+  <!-- Mobile Specific Metas
+    ================================================== -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title and meta description
+    ================================================== -->
+  <title>{{ page.title }} | {{site.title}}</title>
+  <meta property="og:image" content="https://itvmo.gsa.gov/assets/images/logos/itvmo-thumbnail.png">
+  <meta property="og:title" content="{{page.title}} | IT Vendor Management Office">
+  <meta name="description" content="{{page.description}}">
+  <meta property="og:description" content="{{page.description}}">
+  <meta name="keywords" content="{{page.keywords}}" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@{{site.twitter}}" />
+  <meta name="twitter:title" content="{{page.title}}" />
+  <meta name="twitter:description" content="{{page.description}}" />
+
+  <meta property="og:type" content="article">
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
+  <meta property="og:url" content="{{ page.url | absolute_url }}" />
+  <!-- Favicons
+    ================================================== -->
+  <!-- 128x128 -->
+  <link rel="shortcut icon" type="image/ico" href="{{ site.baseurl }}/assets/images/favicon.png">
+  <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/images/favicon.png">
+  <!-- 192x192, as recommended for Android
+    http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+    -->
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ site.baseurl }}/assets/images/favicon.png">
+  <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+  <link rel="apple-touch-icon-precomposed" href="{{ site.baseurl }}/assets/images/favicon.png">
+  <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ site.baseurl }}/assets/images/favicon.png">
+  <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ site.baseurl }}/assets/images/favicon.png">
+  <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/assets/images/favicon.png">
+  <!-- CSS ================================================== -->
+  <link type="text/css" href="{{site.baseurl}}/assets/css/styles.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>

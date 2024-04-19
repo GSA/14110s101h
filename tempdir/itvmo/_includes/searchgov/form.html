@@ -1,0 +1,35 @@
+{% comment %} 
+  This will redirect the results to /search template which will handle the js loading
+{% endcomment %}
+
+<form
+  id="search_form"
+  class="usa-search usa-search--small"
+  role="search"
+  accept-charset="UTF-8"
+  action="https://search.usa.gov/search"
+  method="get"
+>
+  <input name="utf8" type="hidden" value="✓" />
+  <input id="affiliate" name="affiliate" type="hidden" value="gsa-itvmo" />
+  <div role="search">
+    <!-- <label class="usa-sr-only" for="extended-search-field-small">
+      Search small
+    </label> -->
+    <input
+      class="usa-input usagov-search-autocomplete search-input"
+      id="extended-search-field-small"
+      type="search"
+      name="query"
+      autocomplete="off"
+      placeholder="What are you looking for?"
+    />
+    <button class="usa-button search-button search-btn" type="submit"><span class="usa-sr-only">Search</span></button>
+  </div>
+</form>
+
+<!-- 
+  <div class="search-div" role="search">
+    <label class="usa-sr-only" for="extended-search-field-small">Search small</label>
+    <input class="usa-input usagov-search-autocomplete search-input" id="extended-search-field-small" type="search" name="query" autocomplete="off">
+    <button class="usa-button search-button search-btn" type="submit"><span class="usa-sr-only">Search</span></button> -->

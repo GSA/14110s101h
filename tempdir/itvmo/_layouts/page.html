@@ -1,0 +1,82 @@
+---
+layout: base
+---
+
+{% comment %}
+This template is for a single page that does not have a date associated with it. For example, an about page.
+{% endcomment %}
+
+<!-- If the page is not redesign use the default page setup. -->
+{% if page.redesign != true %}
+<div id="main-content" class="usa-layout-docs usa-section padding-top-3 sect-container">
+{% else %}
+<div id="new-main-content" class="usa-layout-docs usa-section padding-top-3 sect-container">
+{% endif %}
+  {% if page.mainpage != true %}
+  <div class="grid-container padding-0">
+    <!-- <div class="grid-row grid-gap"> -->
+    <div class="">
+      {% if page.sidenav == true %}
+      {% include sidenav.html %}
+      {% endif %}
+      <main>
+        <div class="usa-layout-docs__main desktop:grid-col-12 usa-prose">
+          <!-- if the page is the new redesign version, use the new heading design -->
+          {% if page.redesign == true %}
+          {% if page.title == 'Contact Us'%}
+          <section id="redesign-page" class="">
+            <section id="inner-page-heading"  class="inner-page-heading-margin-0">
+               <section id="page-directory" class="page-directory-no-left-padding"></section>
+            </section>
+            <div class="overlay" id="custom-overlay"></div>
+          {% elsif page.title == 'Coming Soon'%}
+          <section id="redesign-page" class="">
+            <div class="overlay" id="custom-overlay"></div>
+          {% else %}
+          <section id="redesign-page" class="inner-page">
+            <section id="inner-page-heading">
+               <section id="page-directory"></section>
+               <section id="page-heading">
+                  <h1 class="page-heading-title margin-0 padding-top-1 padding-bottom-1">{{ page.title }}</h1>
+                  <img alt="{{ page.title }} icon" src="{{site.baseurl}}{{page.title-image}}">
+               </section>
+               <p id="page-heading-description">{{page.heading-description}}</p>
+            </section>
+            {% endif %}
+            {{ content }}
+          </section>
+          <!-- if the page is the old design page -->
+          {% else %}
+          <section id="page-directory"></section>
+          {{ content }}
+          {% endif %}
+        </div>
+      </main>
+    </div>
+  </div>
+  {% else %}
+    <!-- <div class="grid-row grid-gap"> -->
+    <div class="">
+      {% if page.sidenav == true %}
+      {% include sidenav.html %}
+      {% endif %}
+      <main>
+        <div class="usa-layout-docs__main desktop:grid-col-12 usa-prose">
+          <section id="main-page-heading">
+            <div class="grid-container padding-0">
+              <div id="main-page-heading-detail">
+                      <h1>
+                        {{page.title}}
+                      </h1>
+                      <p>
+                        {{page.heading-description}}
+                      </p>
+              </div>
+            </div>
+          </section>
+            {{ content }}
+        </div>
+      </main>
+    </div>
+  {% endif %}
+</div>

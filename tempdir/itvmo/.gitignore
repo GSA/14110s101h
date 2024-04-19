@@ -1,0 +1,10 @@
+_site
+.sass-cache
+.jekyll-metadata
+node_modules
+.bundle
+.jekyll-cache/
+assets/uswds/*
+!assets/uswds/.gitkeep
+assets/js/uswds*
+assets/netlify-cms

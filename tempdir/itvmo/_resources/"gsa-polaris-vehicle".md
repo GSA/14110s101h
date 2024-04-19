@@ -1,0 +1,15 @@
+---
+highlight: "false" 
+title: "GSA Polaris Vehicle"
+description: "Polaris will be a small business governmentwide acquisition contract (GWAC) for acquiring customized information technology (IT) services and IT services-based solutions."
+url-link: "https://www.gsa.gov/technology/it-contract-vehicles-and-purchasing-programs/governmentwide-acquisition-contracts/polarisr"
+type: "HTML"
+gov-only: "false"
+is-external: "true"
+publication-date: "July 01, 2023"
+reading-time: "5"
+resource-type: "information-slick"
+filter: "contract-solutions"
+audience: "contracts-acquisitions"
+branded-offerings: "acquisition-policy-it-category"
+---
