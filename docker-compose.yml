@@ -1,10 +1,12 @@
 version: '3'
 services:
   node:
-    image: node:12
+    image: node:14  # Update to use a newer Node version if possible
     working_dir: /app
     volumes:
       - .:/app:delegated
+    command: npm run build  # Specify a default command if needed, or use it to run node services
+
   ruby:
     build: .
     working_dir: /app
