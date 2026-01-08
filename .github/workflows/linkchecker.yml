@@ -22,7 +22,7 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           # Input file containing URLs to check
-          args: '--verbose --no-progress --format markdown --timeout 30 --max-retries 3 --accept 200,201,202,203,204,301,302,303,307,308 gsa-urls.txt'
+          args: '--verbose --no-progress --format markdown --timeout 30 --max-retries 3 --accept 200,201,202,203,204,301,302,303,307,308 itc-urls.txt'
           # Don't fail the workflow on broken links
           fail: false
           # Output format
