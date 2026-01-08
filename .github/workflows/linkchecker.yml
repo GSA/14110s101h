@@ -1,0 +1,49 @@
+name: Scan for broken links
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 9 * * 1'
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Install muffet
+        run: |
+          curl -sSL https://github.com/raviqqe/muffet/releases/latest/download/muffet_linux_amd64.tar.gz | tar xz
+          chmod +x muffet
+
+      - name: Crawl site and check links
+        run: |
+          ./muffet https://www.gsa.gov/technology/it-contract-vehicles-and-purchasing-programs \
+            --header "User-Agent: ITC-LinkChecker/1.0 (internal bot; +https://github.com/GSA/itvmo)" \
+            --buffer-size 8192 \
+            --max-connections 10 \
+            --timeout 30 \
+            --exclude 'linkedin\.com' \
+            --exclude 'twitter\.com' \
+            --exclude 'x\.com' \
+            --exclude 'facebook\.com' \
+            --exclude 'mailto:' \
+            2>&1 | tee link-report.txt || true
+
+      - name: Generate summary
+        run: |
+          echo "## GSA IT Contract Vehicles - Link Check Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if grep -q "^https\?://" link-report.txt; then
+            echo "### Broken Links Found:" >> $GITHUB_STEP_SUMMARY
+            cat link-report.txt >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ No broken links found!" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-check-report
+          path: link-report.txt
+          retention-days: 30
