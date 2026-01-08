@@ -9,11 +9,13 @@ jobs:
   check-links:
     runs-on: ubuntu-latest
     permissions:
+      contents: write  # Need write permission to commit
       issues: write
-      contents: read
     
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -29,15 +31,41 @@ jobs:
       
       - name: Check links for each URL
         run: python scripts/check_links.py
+        continue-on-error: true  # Continue even if broken links found
       
-      - name: Upload results
-        uses: actions/upload-artifact@v4
-        with:
-          name: link-check-results-${{ github.run_number }}
-          path: |
-            results/link-report.md
-            results/link-report.json
-            results/detailed-lychee-output.txt
+      - name: Create reports directory if needed
+        run: mkdir -p link-check-reports
+      
+      - name: Copy reports to storage directory
+        run: |
+          # Create date-based subdirectory
+          REPORT_DATE=$(date -u +"%Y-%m-%d")
+          REPORT_DIR="link-check-reports/${REPORT_DATE}"
+          mkdir -p "$REPORT_DIR"
+          
+          # Copy reports
+          cp results/link-report.md "$REPORT_DIR/README.md"
+          cp results/link-report.json "$REPORT_DIR/report.json"
+          cp results/detailed-lychee-output.txt "$REPORT_DIR/detailed-output.txt"
+          
+          # Also keep a latest version
+          cp results/link-report.md link-check-reports/latest-report.md
+          cp results/link-report.json link-check-reports/latest-report.json
+      
+      - name: Commit and push reports
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          git add link-check-reports/
+          
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "🔍 Link check report for $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+            git push
+          fi
       
       - name: Create issue if broken links found
         if: failure()
