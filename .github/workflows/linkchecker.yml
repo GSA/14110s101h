@@ -6,7 +6,7 @@ on:
     - cron: "0 9 * * 1"  # Run every Monday at 9 AM UTC
   push:
     paths:
-      - 'gsa-urls.txt'  # Run when URL list is updated
+      - 'itc-urls.txt'  # Run when URL list is updated
       - '.github/workflows/linkchecker.yml'  # Run when this workflow is updated
 
 jobs:
