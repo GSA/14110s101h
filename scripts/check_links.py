@@ -29,12 +29,22 @@ URLS = [
 ]
 
 def run_lychee_properly(urls):
-    """Run lychee on all URLs using stdin to avoid command line issues"""
+    """Run lychee on all URLs to check links WITHIN those pages"""
     # Create a temporary file with all URLs
     urls_content = '\n'.join([f"https://{url}" for url in urls])
     
-    # Run lychee with minimal arguments, using stdin
-    cmd = ['lychee', '--verbose', '--no-progress', '-']
+    # Run lychee with --max-depth to crawl the pages
+    cmd = [
+        'lychee', 
+        '--verbose', 
+        '--no-progress',
+        '--max-depth', '1',  # This tells lychee to check links ON the pages
+        '--format', 'json',
+        '--exclude', '^mailto:',
+        '--exclude', '^tel:',
+        '--exclude', '^javascript:',
+        '-'
+    ]
     
     result = subprocess.run(
         cmd,
