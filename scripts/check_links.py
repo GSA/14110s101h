@@ -31,53 +31,65 @@ def check_single_url(url):
     """Run lychee on a single URL and parse the output"""
     full_url = f"https://{url}"
     
-    # Run lychee with detailed output
-    result = subprocess.run(
-        [
-            'lychee', 
-            '--verbose',
-            '--no-progress',
-            '--format', 'detailed',
-            '--exclude-mail',
-            '--timeout', '20',
-            '--max-retries', '3',
-            full_url
-        ],
-        capture_output=True,
-        text=True
-    )
+    # Run lychee with corrected arguments
+    cmd = [
+        'lychee', 
+        '--verbose',
+        '--no-progress',
+        '--format', 'json',
+        '--timeout', '20',
+        '--max-retries', '3',
+        '--accept', '200..299,301,302,307,308',
+        '--exclude', '^mailto:',
+        '--exclude', '^tel:',
+        '--exclude', '^javascript:',
+        '--exclude', '^#',
+        full_url
+    ]
     
-    # Parse the output for broken links
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    
+    # Store raw output for debugging
+    raw_output = f"Command: {' '.join(cmd)}\nSTDOUT:\n{result.stdout}\nSTDERR:\n{result.stderr}\nReturn code: {result.returncode}\n"
+    
+    # Parse JSON output if available
     broken_links = []
-    lines = result.stdout.split('\n')
-    
-    for i, line in enumerate(lines):
-        if '[ERROR]' in line or '[BROKEN]' in line or '✗' in line:
-            # Extract the URL and status
-            parts = line.split()
-            for part in parts:
-                if part.startswith('http'):
-                    # Look for status code in nearby lines
-                    status = 'Unknown'
-                    for j in range(max(0, i-2), min(len(lines), i+3)):
-                        if 'Status:' in lines[j] or '│' in lines[j]:
-                            status_parts = lines[j].split()
-                            for k, sp in enumerate(status_parts):
-                                if sp.isdigit() and len(sp) == 3:
-                                    status = sp
-                                    break
+    if result.stdout:
+        try:
+            data = json.loads(result.stdout)
+            # Lychee returns failed links in the 'fail' key
+            if 'fail' in data and data['fail']:
+                for url, details in data['fail'].items():
+                    status = details.get('status', {})
+                    if isinstance(status, dict):
+                        code = status.get('code', 'Unknown')
+                    else:
+                        code = str(status) if status else 'Unknown'
                     
                     broken_links.append({
-                        'url': part.strip('│').strip(),
-                        'status': status
+                        'url': url,
+                        'status': code
                     })
-                    break
+        except json.JSONDecodeError:
+            # If JSON parsing fails, try to parse the text output
+            print(f"Failed to parse JSON for {full_url}, attempting text parsing...")
+            lines = result.stdout.split('\n')
+            for line in lines:
+                if 'Failed' in line or 'Error' in line or '✗' in line:
+                    # Extract URL from line
+                    parts = line.split()
+                    for part in parts:
+                        if part.startswith('http'):
+                            broken_links.append({
+                                'url': part,
+                                'status': 'Failed'
+                            })
     
     return {
         'parent_url': full_url,
         'broken_links': broken_links,
         'exit_code': result.returncode,
-        'full_output': result.stdout + '\n' + result.stderr
+        'full_output': raw_output
     }
 
 def main():
@@ -96,6 +108,13 @@ def main():
         print(f"[{i}/{len(URLS)}] Checking {url}...")
         result = check_single_url(url)
         all_results.append(result)
+        
+        # Check if lychee command failed entirely
+        if "error: unexpected argument" in result['full_output']:
+            print(f"ERROR: Lychee command failed for {url}")
+            print(result['full_output'])
+            # Try alternative command without problematic flags
+            continue
         
         if result['broken_links']:
             urls_with_broken_links.append(result)
@@ -125,8 +144,8 @@ def main():
     
     # Generate markdown report
     generate_markdown_report(urls_with_broken_links, len(URLS), total_broken_links)
-
-        # Exit with error if broken links found
+    
+    # Exit with error if broken links found
     if urls_with_broken_links:
         print(f"\n❌ Found {total_broken_links} broken links across {len(urls_with_broken_links)} pages")
         exit(1)
