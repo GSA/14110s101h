@@ -1,76 +1,57 @@
-name: Daily Link Checker
+name: GSA Link Checker
 
 on:
   workflow_dispatch:  # Manual trigger
   schedule:
-    - cron: "0 6 * * *"  # Daily at 6 AM UTC
+    - cron: "0 9 * * 1"  # Run every Monday at 9 AM UTC
+  push:
+    paths:
+      - 'gsa-urls.txt'  # Run when URL list is updated
+      - '.github/workflows/linkchecker.yml'  # Run when this workflow is updated
 
 jobs:
   check-links:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # Need write permission to commit
-      issues: write
     
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Run lychee link checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Set up Python
-        uses: actions/setup-python@v5
+          # Input file containing URLs to check
+          args: '--verbose --no-progress --format markdown --timeout 30 --max-retries 3 --accept 200,201,202,203,204,301,302,303,307,308 gsa-urls.txt'
+          # Don't fail the workflow on broken links
+          fail: false
+          # Output format
+          format: markdown
+          # Job summary
+          jobSummary: true
+          
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
-          python-version: '3.x'
-      
-      - name: Install lychee
+          name: link-checker-results
+          path: lychee/out.md
+          retention-days: 30
+          
+      - name: Create summary
+        if: always()
         run: |
-          wget -q https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz
-          tar -xzf lychee-x86_64-unknown-linux-gnu.tar.gz
-          sudo mv lychee /usr/local/bin/
-          lychee --version
-      
-      - name: Check links for each URL
-        run: python scripts/check_links.py
-        continue-on-error: true  # Continue even if broken links found
-      
-      - name: Create reports directory if needed
-        run: mkdir -p link-check-reports
-      
-      - name: Copy reports to storage directory
-        run: |
-          # Create date-based subdirectory
-          REPORT_DATE=$(date -u +"%Y-%m-%d")
-          REPORT_DIR="link-check-reports/${REPORT_DATE}"
-          mkdir -p "$REPORT_DIR"
+          echo "## 🔗 Link Checker Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Checked GSA Drupal nodes for broken links." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
           
-          # Copy reports
-          cp results/link-report.md "$REPORT_DIR/README.md"
-          cp results/link-report.json "$REPORT_DIR/report.json"
-          cp results/detailed-lychee-output.txt "$REPORT_DIR/detailed-output.txt"
-          
-          # Also keep a latest version
-          cp results/link-report.md link-check-reports/latest-report.md
-          cp results/link-report.json link-check-reports/latest-report.json
-      
-      - name: Commit and push reports
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          
-          git add link-check-reports/
-          
-          # Check if there are changes to commit
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
+          if [ -f "lychee/out.md" ]; then
+            cat lychee/out.md >> $GITHUB_STEP_SUMMARY
           else
-            git commit -m "🔍 Link check report for $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
-            git push
+            echo "No broken links found! ✅" >> $GITHUB_STEP_SUMMARY
           fi
-      
-      - name: Create issue if broken links found
-        if: failure()
-        uses: peter-evans/create-issue-from-file@v5
-        with:
-          title: "Daily Link Check Report - Broken Links Found"
-          content-filepath: ./results/link-report.md
-          labels: automated, broken-links
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "📊 **Summary:** ${{ steps.lychee.outputs.exit_code == 0 && '✅ All links are valid' || '⚠️ Some links need attention' }}" >> $GITHUB_STEP_SUMMARY
