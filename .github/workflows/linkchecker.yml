@@ -1,59 +1,48 @@
-name: Scan for broken links
+name: Daily Link Checker
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # Manual trigger
   schedule:
-    - cron: '0 9 * * 1'
+    - cron: "0 6 * * *"  # Daily at 6 AM UTC
 
 jobs:
-  link-check:
+  check-links:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    permissions:
+      issues: write
+      contents: read
+    
     steps:
-      - name: Install muffet
-        run: |
-          curl -sSL https://github.com/raviqqe/muffet/releases/latest/download/muffet_linux_amd64.tar.gz | tar xz
-          chmod +x muffet
-
-      - name: Crawl site and check links
-        run: |
-          ./muffet https://www.gsa.gov/technology/it-contract-vehicles-and-purchasing-programs \
-            --header "User-Agent: ITC-LinkChecker/1.0 (internal bot; +https://github.com/GSA/itvmo)" \
-            --buffer-size 8192 \
-            --max-connections 10 \
-            --timeout 30 \
-            --exclude 'linkedin\.com' \
-            --exclude 'twitter\.com' \
-            --exclude 'x\.com' \
-            --exclude 'facebook\.com' \
-            --exclude 'mailto:' \
-            2>&1 | tee link-report.txt || true
-
-      - name: Generate summary grouped by parent URL
-        run: |
-          echo "## Link Check Results" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          
-          if grep -q "^https\?://" link-report.txt; then
-            echo "### Broken Links Found:" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            
-            # Extract unique parent URLs and sort them
-            grep "^https\?://" link-report.txt | awk -F' ' '{print $1}' | sort -u | while read parent_url; do
-              echo "#### 📄 \`$parent_url\`" >> $GITHUB_STEP_SUMMARY
-              echo "" >> $GITHUB_STEP_SUMMARY
-              # Find all broken links on this page
-              grep "^$parent_url " link-report.txt | awk -F' ' '{$1=""; print "- " $0}' >> $GITHUB_STEP_SUMMARY
-              echo "" >> $GITHUB_STEP_SUMMARY
-            done
-          else
-            echo "✅ No broken links found!" >> $GITHUB_STEP_SUMMARY
-          fi
-
-      - name: Upload report
-        if: always()
-        uses: actions/upload-artifact@v4
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          name: link-check-report
-          path: link-report.txt
-          retention-days: 30
+          python-version: '3.x'
+      
+      - name: Install lychee
+        run: |
+          wget -q https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz
+          tar -xzf lychee-x86_64-unknown-linux-gnu.tar.gz
+          sudo mv lychee /usr/local/bin/
+          lychee --version
+      
+      - name: Check links for each URL
+        run: python scripts/check_links.py
+      
+      - name: Upload results
+        uses: actions/upload-artifact@v3
+        with:
+          name: link-check-results-${{ github.run_number }}
+          path: |
+            results/link-report.md
+            results/link-report.json
+            results/detailed-lychee-output.txt
+      
+      - name: Create issue if broken links found
+        if: failure()
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "Daily Link Check Report - Broken Links Found"
+          content-filepath: ./results/link-report.md
+          labels: automated, broken-links
