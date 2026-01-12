@@ -1,12 +1,11 @@
-# Deploy to gh-pages by pushing built static files directly (avoids deprecated upload-artifact)
-name: Deploy GitHub Pages (git-based)
-
+# Deploy to gh-pages by pushing built static files directly (safe, git-based)
+name: Deploy GitHub Pages (git-based, safe)
 on:
   push:
     branches:
       - main
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, closed]
   workflow_dispatch:
     inputs:
       publish_folder:
@@ -34,12 +33,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
+          
       - name: Set up Node.js (optional)
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-
+          
       - name: Install dependencies (optional)
         run: |
           if [ -f package.json ]; then
@@ -47,7 +46,7 @@ jobs:
           else
             echo "No package.json found; skipping npm install"
           fi
-
+          
       - name: Build site (optional)
         run: |
           if [ -f package.json ]; then
@@ -55,7 +54,7 @@ jobs:
           else
             echo "No build step configured; skipping"
           fi
-
+          
       - name: Detect publish directory
         id: detect
         run: |
@@ -85,110 +84,168 @@ jobs:
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     name: Publish site to gh-pages (root)
-
     steps:
-      - name: Checkout repository
+      - name: Checkout repository (for reference only)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: true
-
-      - name: Prepare git for push
+          
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          
+      - name: Install dependencies and build
         run: |
-          git config user.name "${GIT_NAME}"
-          git config user.email "${GIT_EMAIL}"
-
-      - name: Publish to gh-pages branch (root)
+          if [ -f package.json ]; then
+            npm ci
+            npm run build --if-present
+          else
+            echo "No package.json found; skipping build"
+          fi
+          
+      - name: Prepare publish directory (isolated)
         env:
-          REPO_URL: "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
           PUBLISH_DIR: ${{ needs.detect-build.outputs.publish_dir }}
         run: |
           set -euo pipefail
-
-          # Clone gh-pages if it exists; otherwise create an orphan branch
-          if git ls-remote --exit-code --heads origin gh-pages; then
-            git clone --depth 1 --branch gh-pages "${REPO_URL}" gh-pages
-            cd gh-pages
-            # ensure clean state
-            git rm -rf .
-          else
-            # create a new gh-pages branch from scratch
-            git clone --depth 1 "${REPO_URL}" gh-pages || true
-            cd gh-pages
-            git checkout --orphan gh-pages || true
-            git rm -rf . || true
+          echo "Preparing isolated publish dir from: ${PUBLISH_DIR}"
+          rm -rf out
+          mkdir out
+          rsync -a --delete "${PUBLISH_DIR}/" out/
+          # ensure index exists
+          if [ ! -e out/index.html ]; then
+            echo "<!doctype html><meta charset=utf-8><title>Empty</title><body>Empty</body>" > out/index.html
           fi
-
-          # Copy built files into gh-pages root
-          rsync -a --delete "../${PUBLISH_DIR}/" "./"
-
-          # Create or update a .nojekyll to ensure files beginning with _ are served
+          ls -la out | sed -n '1,200p'
+          
+      - name: Publish out/ as gh-pages root
+        env:
+          REPO_URL: "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+        run: |
+          set -euo pipefail
+          cd out
+          git init
+          git config user.name "${GIT_NAME}"
+          git config user.email "${GIT_EMAIL}"
+          git checkout -b gh-pages
+          # ensure .nojekyll
           touch .nojekyll
-
-          # Commit and push if there are changes
-          if [ -n "$(git status --porcelain)" ]; then
-            git add -A
-            git commit -m "Publish site: ${GITHUB_SHA}"
-            git push "${REPO_URL}" gh-pages --force
-            echo "Published to gh-pages branch"
-          else
-            echo "No changes to publish"
-          fi
+          git add -A
+          git commit -m "Publish site: ${GITHUB_SHA}" || echo "Nothing to commit"
+          git remote add origin "${REPO_URL}"
+          # Force-push the branch to replace remote gh-pages content
+          git push --force "${REPO_URL}" gh-pages
+          echo "Published out/ to gh-pages (root)"
 
   preview-pr:
     needs: detect-build
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
     runs-on: ubuntu-latest
     name: Publish PR preview to gh-pages/previews/pr-#
-
     steps:
-      - name: Checkout repository
+      - name: Checkout repository (for reference)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: true
-
-      - name: Prepare git for push
+          
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          
+      - name: Install dependencies and build
         run: |
-          git config user.name "${GIT_NAME}"
-          git config user.email "${GIT_EMAIL}"
-
-      - name: Publish preview to gh-pages/previews/pr-<number>
+          if [ -f package.json ]; then
+            npm ci
+            npm run build --if-present
+          else
+            echo "No package.json found; skipping build"
+          fi
+          
+      - name: Prepare publish directory (isolated)
         env:
-          REPO_URL: "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
           PUBLISH_DIR: ${{ needs.detect-build.outputs.publish_dir }}
-          PR_NUM: ${{ github.event.pull_request.number }}
         run: |
           set -euo pipefail
-
-          # Clone gh-pages branch if it exists, otherwise create it
+          echo "Preparing isolated publish dir from: ${PUBLISH_DIR}"
+          rm -rf out
+          mkdir out
+          rsync -a --delete "${PUBLISH_DIR}/" out/
+          ls -la out | sed -n '1,200p'
+          
+      - name: Clone or create gh-pages branch
+        env:
+          REPO_URL: "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+        run: |
+          set -euo pipefail
           if git ls-remote --exit-code --heads origin gh-pages; then
             git clone --depth 1 --branch gh-pages "${REPO_URL}" gh-pages
           else
-            git clone --depth 1 "${REPO_URL}" gh-pages || true
-            mkdir -p gh-pages
+            mkdir gh-pages
             cd gh-pages
             git init
+            git checkout -b gh-pages
             git remote add origin "${REPO_URL}"
-            git checkout --orphan gh-pages || true
             cd ..
           fi
-
+          ls -la gh-pages | sed -n '1,200p'
+          
+      - name: Update preview folder and push
+        env:
+          PR_NUM: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
           cd gh-pages
-
+          git config user.name "${GIT_NAME}"
+          git config user.email "${GIT_EMAIL}"
           TARGET_DIR="previews/pr-${PR_NUM}"
           mkdir -p "${TARGET_DIR}"
-          # clear previous preview content for this PR (if any)
+          # clean target dir but avoid accidental deletion outside folder
           rm -rf "${TARGET_DIR:?}/"*
-          # copy built site to target dir
-          rsync -a --delete "../${PUBLISH_DIR}/" "${TARGET_DIR}/"
-
-          # commit and push if changes exist
+          rsync -a --delete "../out/" "${TARGET_DIR}/"
+          # add .nojekyll if not present
+          touch .nojekyll
           if [ -n "$(git status --porcelain)" ]; then
             git add -A
             git commit -m "Deploy preview for PR #${PR_NUM} — ${GITHUB_SHA}"
-            git push "${REPO_URL}" gh-pages
+            git push origin gh-pages
             echo "Preview deployed to gh-pages/${TARGET_DIR}"
           else
             echo "No changes to deploy for PR #${PR_NUM}"
+          fi
+
+  cleanup-preview:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    name: Remove preview for closed PR
+    steps:
+      - name: Remove preview folder for closed PR on gh-pages
+        env:
+          REPO_URL: "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          PR_NUM: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          # Clone gh-pages (if missing, nothing to do)
+          if ! git ls-remote --exit-code --heads origin gh-pages; then
+            echo "No gh-pages branch exists; nothing to clean"
+            exit 0
+          fi
+          git clone --depth 1 --branch gh-pages "${REPO_URL}" gh-pages
+          cd gh-pages
+          git config user.name "${GIT_NAME}"
+          git config user.email "${GIT_EMAIL}"
+          TARGET_DIR="previews/pr-${PR_NUM}"
+          if [ -d "${TARGET_DIR}" ]; then
+            rm -rf "${TARGET_DIR}"
+            if [ -n "$(git status --porcelain)" ]; then
+              git add -A
+              git commit -m "Remove preview for closed PR #${PR_NUM}"
+              git push origin gh-pages
+              echo "Removed preview ${TARGET_DIR}"
+            else
+              echo "No changes after removal"
+            fi
+          else
+            echo "Preview ${TARGET_DIR} not found; nothing to do"
           fi
