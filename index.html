@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SCRIPTS — Prototype</title>
+
+  <!-- USWDS (via CDN) - change to pinned version if you want reproducible builds -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uswds@latest/dist/css/uswds.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/uswds@latest/dist/js/uswds.min.js" defer></script>
+
+  <style>
+    /* small prototype tweaks */
+    main { padding: 1.5rem; max-width: 1100px; margin: 0 auto; }
+  </style>
+</head>
+<body class="usa-sans">
+  <!-- Skip link for keyboard users -->
+  <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+
+  <!-- Simple USWDS header; replace with GSA header HTML if you have it -->
+  <header class="usa-site-header usa-site-header--basic">
+    <div class="usa-nav-container">
+      <div class="usa-navbar">
+        <div class="usa-logo" id="logo">
+          <em class="usa-logo__text"><a href="#" title="Home">GSA</a></em>
+        </div>
+        <button class="usa-menu-btn">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" role="main" aria-labelledby="page-title">
+    <h1 id="page-title">SCRIPTS — Prototype content</h1>
+
+    <section class="usa-prose">
+      <h2>How to use GWACs</h2>
+      <p>The conformed SCRIPTS BPAs contain the scope, technical requirements, and information regarding pricing, order types, roles and responsibilities, and applicable parts of the Federal Acquisition Regulation...</p>
+
+      <ol class="usa-process-list">
+        <li class="usa-process-list__item">
+          <h3>Plan the Acquisition</h3>
+          <p>Conduct market research and acquisition planning.</p>
+        </li>
+        <li class="usa-process-list__item">
+          <h3>Define Requirements</h3>
+          <p>Develop Statement of Work or Performance Work Statement.</p>
+        </li>
+        <li class="usa-process-list__item">
+          <h3>Issue RFQ</h3>
+          <p>For orders above the simplified acquisition threshold, post your RFQ on eBuy.</p>
+        </li>
+      </ol>
+
+      <h2>Contact us</h2>
+      <p>Prototype only — this page is served from GitHub Pages.</p>
+    </section>
+  </main>
+
+  <!-- Simple footer; replace with GSA footer snippet if available -->
+  <footer class="usa-footer" role="contentinfo">
+    <div class="usa-grid">
+      <div class="usa-footer__primary-section">
+        <div class="usa-footer__primary-content">
+          <h3 class="usa-footer__logo">
+            <a href="#">GSA</a>
+          </h3>
+          <p>Prototype — do not use for production publishing to gsa.gov.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
