@@ -4,27 +4,39 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch: {}
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+    inputs:
+      publish_folder:
+        description: 'Folder to publish (fallback to detection if empty)'
+        required: false
+        default: 'docs'
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
+env:
+  NODE_VERSION: '18'
+
 jobs:
-  build-and-deploy:
+  deploy-pages:
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
-    name: Build and deploy site to GitHub Pages
+    name: Build and deploy site to GitHub Pages (main)
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js (optional)
-        if: runner.os == 'Linux'
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: ${{ env.NODE_VERSION }}
 
       - name: Install dependencies (optional)
         run: |
@@ -36,20 +48,138 @@ jobs:
 
       - name: Build site (optional)
         run: |
-          # Adjust this command to your project's build command. The build must output static files into `docs/`.
           if [ -f package.json ]; then
             npm run build --if-present
           else
             echo "No build step configured; skipping"
           fi
 
+      - name: Detect publish directory
+        id: detect
+        run: |
+          set -euo pipefail
+          INPUT_DIR="${{ github.event.inputs.publish_folder || '' }}"
+          if [ -z "${INPUT_DIR}" ]; then
+            INPUT_DIR="docs"
+          fi
+          CANDIDATES=("$INPUT_DIR" "docs" "public" "dist" "build" "_site" "site")
+          PUBLISH_DIR=""
+          for d in "${CANDIDATES[@]}"; do
+            if [ -d "$d" ] && [ "$(ls -A "$d" 2>/dev/null || true)" ]; then
+              PUBLISH_DIR="$d"
+              break
+            fi
+          done
+          if [ -z "$PUBLISH_DIR" ]; then
+            echo "No publish directory found among candidates: ${CANDIDATES[*]}"
+            echo "To override, run workflow_dispatch and set publish_folder to your output folder."
+            exit 1
+          fi
+          echo "Detected publish directory: $PUBLISH_DIR"
+          echo "publish_dir=$PUBLISH_DIR" >> "$GITHUB_OUTPUT"
+
       - name: Configure Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload artifact (docs/)
+      - name: Upload artifact (publish dir)
         uses: actions/upload-pages-artifact@v1
         with:
-          path: docs
+          path: ${{ steps.detect.outputs.publish_dir }}
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
+
+  preview-pr:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    name: Build and publish PR preview (gh-pages/previews/pr-#)
+
+    steps:
+      - name: Checkout repository (for preview)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          # allow pushing back to repo using GITHUB_TOKEN
+          persist-credentials: true
+
+      - name: Set up Node.js (optional)
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies (optional)
+        run: |
+          if [ -f package.json ]; then
+            npm ci
+          else
+            echo "No package.json found; skipping npm install"
+          fi
+
+      - name: Build site (optional)
+        run: |
+          if [ -f package.json ]; then
+            npm run build --if-present
+          else
+            echo "No build step configured; skipping"
+          fi
+
+      - name: Detect publish directory (preview)
+        id: detect_preview
+        run: |
+          set -euo pipefail
+          INPUT_DIR="${{ github.event.inputs.publish_folder || '' }}"
+          if [ -z "${INPUT_DIR}" ]; then
+            INPUT_DIR="docs"
+          fi
+          CANDIDATES=("$INPUT_DIR" "docs" "public" "dist" "build" "_site" "site")
+          PUBLISH_DIR=""
+          for d in "${CANDIDATES[@]}"; do
+            if [ -d "$d" ] && [ "$(ls -A "$d" 2>/dev/null || true)" ]; then
+              PUBLISH_DIR="$d"
+              break
+            fi
+          done
+          if [ -z "$PUBLISH_DIR" ]; then
+            echo "No publish directory found among candidates: ${CANDIDATES[*]}"
+            exit 1
+          fi
+          echo "publish_dir=$PUBLISH_DIR" >> "$GITHUB_OUTPUT"
+
+      - name: Publish preview to gh-pages branch under previews/pr-<number>
+        env:
+          PR_NUM: ${{ github.event.pull_request.number }}
+          PUBLISH_DIR: ${{ steps.detect_preview.outputs.publish_dir }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # ensure we can fetch gh-pages
+          git fetch origin gh-pages || true
+
+          # checkout or create gh-pages
+          if git ls-remote --exit-code --heads origin gh-pages; then
+            git checkout gh-pages
+            git reset --hard origin/gh-pages
+          else
+            # create orphan branch
+            git checkout --orphan gh-pages
+            git rm -rf .
+          fi
+
+          TARGET_DIR="previews/pr-${PR_NUM}"
+          mkdir -p "${TARGET_DIR}"
+          # clear previous preview content for this PR
+          rm -rf "${TARGET_DIR:?}/"*
+          # copy built site to target dir
+          rsync -a --delete "${PUBLISH_DIR}/" "${TARGET_DIR}/"
+
+          # Avoid accidental commits when nothing changed
+          if git status --porcelain | grep .; then
+            git add -A
+            git commit -m "Deploy preview for PR #${PR_NUM} — ${GITHUB_SHA}"
+            git push origin gh-pages
+            echo "Preview deployed to gh-pages/${TARGET_DIR}"
+          else
+            echo "No changes to deploy for PR #${PR_NUM}"
+          fi
